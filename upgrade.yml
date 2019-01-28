@@ -1,5 +1,5 @@
 - name: Update all packages to the latest version
-- hosts: all
+  hosts: all
   apt:
     upgrade: yes
     update_cache: yes
