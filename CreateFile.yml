@@ -1,3 +1,7 @@
+- name: Create file string
+  hosts: all
+  
+  tasks:
 - name: create a complete empty file
   command: /usr/bin/touch /home/tmp.txt
   
