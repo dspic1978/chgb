@@ -1,6 +1,6 @@
-  name: Update all packages to the latest version
-  hosts: all
-  apt:
+-name: Update all packages to the latest version
+ hosts: all
+   apt:
     upgrade: yes
     update_cache: yes
     cache_valid_time: 86400 #One day
