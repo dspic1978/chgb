@@ -1,4 +1,4 @@
-- name: Update all packages to the latest version
+  name: Update all packages to the latest version
   hosts: all
   apt:
     upgrade: yes
