@@ -1,2 +1,8 @@
 - name: create a complete empty file
   command: /usr/bin/touch /home/tmp.txt
+  
+- name: create a new file with lineinfile
+  lineinfile: dest=/home/tmp.txt
+              regexp='^' line='Ura! Rabotaet!'
+              state=present
+              create=True
