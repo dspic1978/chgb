@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+--- 
+- hosts: all 
+    tasks: 
+    - group_by: key=chgb101 
+    when: ansible_default_ipv4.network == '192.168.101.0' 
