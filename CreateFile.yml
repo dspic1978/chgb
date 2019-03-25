@@ -1,10 +1,8 @@
 - name: Create file string
   hosts: all
-
   tasks:
 #- name: create a complete empty file
-  command: /usr/bin/touch /home/tmp.txt
-
+  command: touch /home/tmp.txt
 #- name: create a new file with lineinfile
   lineinfile: dest=/home/tmp.txt
    - name: create a complete empty file
