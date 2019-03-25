@@ -1,0 +1,7 @@
+- hosts: all
+  tasks:
+    - name: change a str
+            lineinfile: dest=/home/x11vnc.service
+            regexp='^ExecStart=/usr/bin/x11vnc -auth guess -forever -loop -repeat -rfbport 5900 -shared -rfbauth /etc/vnc/passwd -o /var/log/x11vnc.log'
+            insertbefore=BOF
+            line='ExecStart=/usr/bin/x11vnc -auth guess -forever -noxrecord -loop -repeat -rfbport 5900 -shared -rfbauth /etc/vnc/passwd -o /var/log/x11vnc.log'  
