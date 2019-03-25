@@ -1,6 +1,5 @@
 - hosts: all
   
   tasks:
-    - name: Update apt cache
-      apt: update_cache=yes
+    - name: Create file
       command: touch /home/tmp.txt
