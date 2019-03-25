@@ -9,6 +9,6 @@
      command: /usr/bin/touch /home/tmp.txt
    - name: create a new file with lineinfile
      lineinfile: dest=/home/tmp.txt
-              regexp='^' line='Ura! Rabotaet!'
+              regexp='^' line='Test! Test!'
               state=present
               create=True
