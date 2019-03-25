@@ -1,3 +1,6 @@
-- name: create a complete empty file
-  hosts: all
-  command: touch /home/tmp.txt
+- hosts: all
+  
+  tasks:
+    - name: Update apt cache
+      apt: update_cache=yes
+      command: touch /home/tmp.txt
