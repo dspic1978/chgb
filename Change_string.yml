@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: Pol1
   tasks:
     - name: change a str
       lineinfile: dest=/lib/systemd/system/x11vnc.service
