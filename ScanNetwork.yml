@@ -1,4 +1,0 @@
-- name: ScanNetwork
-- hosts: all 
-    tasks: 
-    - group_by: key=network_{{ ansible_default_ipv4.network }} 
