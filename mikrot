@@ -1,13 +1,13 @@
 [fap]
-89.148.195.39
-188.17.158.130
-188.17.155.9
-83.219.1.254
-37.79.251.222
-84.54.52.13 
-188.17.152.218
-188.17.153.50
-188.17.155.127
-188.17.156.23
-188.17.156.21
-109.196.143.48
+lukin ansible_host=89.148.195.39
+olhovka ansible_host=188.17.158.130
+dedush ansible_host=188.17.155.9
+vassyata ansible_host=83.219.1.254
+zipunovo ansible_host=37.79.251.222
+garevaya ansible_host=84.54.52.13 
+chumna ansible_host=188.17.152.218
+zasechny ansible_host=188.17.153.50
+alnyash ansible_host=188.17.155.127
+markovo ansible_host=188.17.156.23
+prikamskiy ansible_host=188.17.156.21
+zavyalovo ansible_host=109.196.143.48
