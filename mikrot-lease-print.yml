@@ -1,6 +1,5 @@
 - hosts: all
-  connection: network_cli
+  gather_facts: no
   tasks:
     - name: run command on remote devices
-      routeros_command:
-        commands: /ip dhcp-server lease print
+      raw: /ip dhcp-server lease print
