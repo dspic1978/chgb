@@ -1,0 +1,5 @@
+- hosts: all
+  tasks:
+   - name: run command on remote devices
+     routeros_command:
+     commands: /ip dhcp-server lease print
