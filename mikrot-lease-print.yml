@@ -1,4 +1,5 @@
 - hosts: all
+  connection: network_cli
   tasks:
     - name: run command on remote devices
       routeros_command:
