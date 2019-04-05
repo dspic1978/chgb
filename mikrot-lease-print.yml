@@ -1,5 +1,6 @@
 - hosts: all
+  connection: paramiko
   gather_facts: no
   tasks:
     - name: run command on remote devices
-      raw: /ip dhcp-server lease print
+      raw: /system script add name=test
