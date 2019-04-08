@@ -3,5 +3,8 @@
   - name: Ansible copy file force
     copy:
       src: file/sample.txt
-      dest: /home/CHGB/chgb_user/Рабочий\ стол/ 
+      dest: /home/CHGB/chgb_user/Рабочий стол/ 
+      owner: chgb_user
+      group: root
+      mode: 0777
       force: yes
