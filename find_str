@@ -1,0 +1,8 @@
+-host: all
+ tasks:
+- name: find_str_to_file
+  lineinfile: dest=/lib/systemd/system/x11vnc.service
+              line: "-noxrecord"
+              check_mode: yes
+              register: presence
+              failed_when: presence.changed
