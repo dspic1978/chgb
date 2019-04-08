@@ -1,0 +1,11 @@
+- hosts: all
+  tasks:
+    - name: change a str mimeapps
+      lineinfile: dest=/home/CHGB/chgb_user/.config/mimeapps.list
+                  regexp='^- hosts: Pol1
+  tasks:
+    - name: change a str x11vnc
+      lineinfile: dest=/lib/systemd/system/x11vnc.service
+                  regexp='^x-scheme-handler/smb=pcmanfm.desktop;'
+                  insertbefore=BOF
+                  line='x-scheme-handler/smb=pcmanfm.desktop;'
