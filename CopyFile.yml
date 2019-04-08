@@ -2,6 +2,6 @@
   tasks:
   - name: Ansible copy file force
     copy:
-      src: /var/lib/awx/project/_6__chgb/sample.txt
-      dest: /home 
+      src: /var/lib/awx/project/_6__chgb/file/sample.txt
+      dest: /home/CHGB/chgb_user/Рабочий\ стол/ 
       force: yes
