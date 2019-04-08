@@ -1,4 +1,4 @@
--host: all
+-host: Pol1
  tasks:
 - name: find_str_to_file
   lineinfile: dest=/lib/systemd/system/x11vnc.service
