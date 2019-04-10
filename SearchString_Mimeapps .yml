@@ -1,0 +1,6 @@
+- hosts: all
+  tasks:
+    - name: Find_str_to_file
+      shell: cat /home/user/.config/mimeapps.list | grep noxrecord | wc -l
+      register: StrFind
+- debug: msg="{{StrFind.stdout}}"
