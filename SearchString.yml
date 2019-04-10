@@ -1,10 +1,9 @@
-- hosts: all
-  
+- host: Pol1
+
   tasks:
-    - name: Update apt cache
-      apt: update_cache=yes
-      
-    - name: Install required packages
-      apt: name={{ item }}      
-      with_items:
-        - nmon
+    - name: Find_str_to_file
+      lineinfile: dest=/lib/systemd/system/x11vnc.service
+                  line: "-noxrecord"
+                  check_mode: yes
+                  register: presence
+                  failed_when: presence.changed
