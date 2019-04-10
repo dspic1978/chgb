@@ -1,0 +1,10 @@
+[Unit]
+Description=x11vnc
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/x11vnc -auth guess -forever -noxrecord -loop -repeat -rfbport 5900 -shared -rfbauth /etc/vnc/passwd -o /var/log/x11vnc.log
+
+[Install]
+WantedBy=multi-user.target
