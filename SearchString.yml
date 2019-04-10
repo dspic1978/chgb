@@ -1,4 +1,4 @@
-- hosts: Pol1
+- hosts: all
   tasks:
     - name: Find_str_to_file
       shell: cat /lib/systemd/system/x11vnc.service | grep noxrecord | wc -l
