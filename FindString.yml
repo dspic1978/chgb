@@ -1,6 +1,6 @@
 -host: Pol1
  tasks:
-   - name: find_str_to_file
+   - name: Find_str_to_file
      lineinfile: dest=/lib/systemd/system/x11vnc.service
                  line: "-noxrecord"
                  check_mode: yes
