@@ -1,9 +1,6 @@
 - hosts: Pol1
-
   tasks:
     - name: Find_str_to_file
-      lineinfile: dest=/lib/systemd/system/x11vnc.service
-                  line: "-noxrecord"
-                  check_mode: yes
-                  register: presence
-                  failed_when: presence.changed
+      shell: cat /lib/systemd/system/x11vnc.service | grep noxrecord | wc -l
+             register: StrFind
+           - debug: msg="{{StrFind.stdout}}"
