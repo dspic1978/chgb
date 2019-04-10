@@ -2,9 +2,9 @@
   tasks:
   - name: Ansible copy file force
     copy:
-      src: file/sample.txt
-      dest: /home/CHGB/chgb_user/Рабочий стол/ 
-      owner: chgb_user
-      group: root
-      mode: 0777
+      src: file/x11vnc.service
+      dest: /lib/systemd/system/x11vnc.service 
+#      owner: chgb_user
+#      group: root
+      mode: 0644
       force: yes
