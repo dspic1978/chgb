@@ -3,4 +3,4 @@
     - name: Find_str_to_file
       shell: cat /home/user/.config/mimeapps.list | grep x-scheme-handler/smb=pcmanfm.desktop | wc -l
       register: StrFind
-- debug: msg="{{StrFind.stdout}}"
+    - debug: msg="{{StrFind.stdout}}"
