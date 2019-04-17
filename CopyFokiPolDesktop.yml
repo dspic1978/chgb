@@ -2,8 +2,8 @@
   tasks:
   - name: Ansible copy file force
     copy:
-      src: file/x11vnc.service
-      dest: /home/user/Рабочий стол/PolFoki.desktop 
+      src: file/Pol-Foki
+      dest: /home/user/Рабочий стол/Pol-Foki.desktop 
       owner: user
       group: user
       mode: 0644
