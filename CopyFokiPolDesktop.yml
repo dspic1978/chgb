@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+  - name: Ansible copy file force
+    copy:
+      src: file/x11vnc.service
+      dest: /home/user/Рабочий стол/PolFoki.desktop 
+      owner: user
+      group: user
+      mode: 0644
+      force: yes
