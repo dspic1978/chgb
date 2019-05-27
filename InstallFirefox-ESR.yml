@@ -7,4 +7,5 @@
     - name: Install required packages
       apt: name={{ item }}      
       with_items:
-        - nmon
+        - firefox-esr
+        - firefox-esr-110ru
