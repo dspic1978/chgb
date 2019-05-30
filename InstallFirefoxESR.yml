@@ -5,7 +5,7 @@
       apt: update_cache=no
       
     - name: Install required packages
-      apt: name={{ item }}      
+      apt: name={{ item }} state=installed     
       with_items:
         - firefox-esr
         - firefox-esr-l10n-ru
