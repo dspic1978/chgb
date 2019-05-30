@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+  - name: Ansible copy file force
+    copy:
+      src: file/firefox.desktop
+      dest: /home/user/Рабочий\ стол 
+#      owner: user
+#      group: users
+      mode: 0777
+force: yes
