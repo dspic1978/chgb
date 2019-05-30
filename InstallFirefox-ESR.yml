@@ -8,4 +8,4 @@
       apt: name={{ item }}      
       with_items:
         - firefox-esr
-        - firefox-esr-110ru
+        - firefox-esr-l10n-ru
