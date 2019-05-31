@@ -3,7 +3,7 @@
   - name: Ansible copy file force
     copy:
       src: file/firefox.desktop
-      dest: /home/user/Рабочий\ стол 
+      dest: /home/user/Рабочий стол/firefox.desktop 
       owner: user
       group: user
       mode: 0644
