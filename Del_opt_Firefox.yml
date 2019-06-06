@@ -5,7 +5,7 @@
        state: absent
        path: "{{ /opt/firefox }}/"
       
-   tasks:
+  tasks:
    - name: Clean  shortcut firefox
      file:
        state: absent
