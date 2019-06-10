@@ -3,7 +3,7 @@
    - name: Clean opt_firefox
      file:
        state: absent
-       path: "{{ /opt/firefox }}/"
+       path: "{{ /opt/firefox/ }}/"
        
 - hosts: all      
   tasks:
