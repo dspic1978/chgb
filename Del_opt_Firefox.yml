@@ -3,11 +3,11 @@
    - name: Clean opt_firefox
      file:
        state: absent
-       path: "{{ /opt/firefox/ }}/"
+       path: "/opt/firefox/"
        
 - hosts: all      
   tasks:
    - name: Clean  shortcut firefox
      file:
        state: absent
-       path: "{{ /usr/share/applications/firefox.desktop }}/"
+       path: "/usr/share/applications/firefox.desktop"
