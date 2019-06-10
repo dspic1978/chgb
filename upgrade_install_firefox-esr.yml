@@ -1,3 +1,4 @@
+#upgade
 - hosts: all
   tasks:
   - name: Update all packages to the latest version
@@ -6,14 +7,19 @@
       update_cache: yes
       cache_valid_time: 86400 #One day
       
+#Ставим Firefox-esr
 - hosts: all
   tasks:
-  - name: Update all packages to the latest version
-    apt:
-      upgrade: yes
-      update_cache: yes
-      cache_valid_time: 86400 #One day
+    - name: Update apt cache
+      apt: update_cache=no
       
+    - name: Install required packages
+      apt: name={{ item }} state=installed     
+      with_items:
+        - firefox-esr
+        - firefox-esr-l10n-ru
+      
+#исправляем ярлыки на рабочем столе и панели быстрого запуска
 - hosts: all
   tasks:
   - name: Ansible copy file force
@@ -31,4 +37,24 @@
       lineinfile: dest=/home/user/.config/lxpanel/LXDE/panels/panel
                   regexp='id=firefox.desktop'
                   insertbefore=BOF
-                  line='id=firefox-esr.desktop'  
+                  line='id=firefox-esr.desktop'
+ 
+#исправляем ярлыки в Skel
+- hosts: all
+  tasks:
+  - name: Ansible copy file force
+    copy:
+      src: file/firefox.desktop
+      dest: /etc/skel/Рабочий стол/firefox.desktop 
+      owner: root
+      group: root
+      mode: 0644
+      force: yes
+      
+ - hosts: all
+  tasks:
+    - name: change a str
+      lineinfile: dest=/etc/skel/.config/lxpanel/LXDE/panels/panel
+                  regexp='id=firefox.desktop'
+                  insertbefore=BOF
+                  line='id=firefox-esr.desktop'
