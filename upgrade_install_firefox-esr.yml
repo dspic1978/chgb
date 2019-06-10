@@ -1,0 +1,34 @@
+- hosts: all
+  tasks:
+  - name: Update all packages to the latest version
+    apt:
+      upgrade: yes
+      update_cache: yes
+      cache_valid_time: 86400 #One day
+      
+- hosts: all
+  tasks:
+  - name: Update all packages to the latest version
+    apt:
+      upgrade: yes
+      update_cache: yes
+      cache_valid_time: 86400 #One day
+      
+- hosts: all
+  tasks:
+  - name: Ansible copy file force
+    copy:
+      src: file/firefox.desktop
+      dest: /home/user/Рабочий стол/firefox.desktop 
+      owner: user
+      group: user
+      mode: 0644
+      force: yes
+      
+- hosts: all
+  tasks:
+    - name: change a str
+      lineinfile: dest=/home/user/.config/lxpanel/LXDE/panels/panel
+                  regexp='id=firefox.desktop'
+                  insertbefore=BOF
+                  line='id=firefox-esr.desktop'  
