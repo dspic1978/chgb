@@ -50,7 +50,7 @@
       mode: 0644
       force: yes
       
- - hosts: all
+- hosts: all
   tasks:
     - name: change a str
       lineinfile: dest=/etc/skel/.config/lxpanel/LXDE/panels/panel
