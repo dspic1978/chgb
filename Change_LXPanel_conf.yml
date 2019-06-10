@@ -1,4 +1,4 @@
-- hosts: Pol1
+- hosts: all
   tasks:
     - name: change a str
       lineinfile: dest=/home/user/.config/lxpanel/LXDE/panels/panel
