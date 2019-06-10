@@ -1,0 +1,7 @@
+- hosts: Pol1
+  tasks:
+    - name: change a str
+      lineinfile: dest=/home/user/.config/lxpanel/LXDE/panels/panel
+                  regexp='id=firefox.desktop'
+                  insertbefore=BOF
+                  line='id=firefox.desktop-esr'  
