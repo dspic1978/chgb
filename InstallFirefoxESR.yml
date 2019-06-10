@@ -9,3 +9,14 @@
       with_items:
         - firefox-esr
         - firefox-esr-l10n-ru
+        
+- hosts: all
+  tasks:
+  - name: Ansible copy file force
+    copy:
+      src: file/firefox.desktop
+      dest: /home/user/Рабочий стол/firefox.desktop 
+      owner: user
+      group: user
+      mode: 0644
+      force: yes
