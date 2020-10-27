@@ -1,0 +1,5 @@
+- hosts: all
+  
+  tasks:
+    - name: Create file
+      command: systemctl disable cups.service systemctl enable cups.socket
