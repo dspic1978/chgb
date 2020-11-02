@@ -1,0 +1,19 @@
+- hosts: all
+  tasks:
+  - name: Ansible copy file force
+    copy:
+      src: /etc/slel/.config
+      dest: /home/user/.config
+      owner: user
+      group: users
+      mode: 0644
+      force: yes
+  tasks:
+  - name: Ansible copy file force
+    copy:
+      src: /etc/slel/.config
+      dest: /home/user/.config
+      owner: user
+      group: users
+      mode: 0644
+      force: yes
