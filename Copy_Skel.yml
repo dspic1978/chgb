@@ -7,6 +7,7 @@
       owner: user
       group: users
       mode: 0644
+      remote_src: yes
       directory_mode: yes
       force: yes
       
@@ -19,5 +20,6 @@
       owner: user
       group: users
       mode: 0644
+      remote_src: yes
       directory_mode: yes
       force: yes
