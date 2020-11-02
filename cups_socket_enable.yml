@@ -1,14 +1,14 @@
 - hosts: all
-   tasks:
-   - name: Disable cups.service
-     systemd:
-     name: cups.service
-#     state: started
-     enabled: no
+  tasks:
+  - name: Disable cups.service
+    systemd:
+      name: cups.service
+#      state: started
+      enabled: no
      
 - hosts: all
-   tasks:
-   - name: Enable cups.service
-     systemd:
-     name: cups.socket
-     enabled: yes 
+  tasks:
+  - name: Enable cups.service
+    systemd:
+      name: cups.socket
+      enabled: yes 
