@@ -1,5 +1,14 @@
 - hosts: all
-  
-  tasks:
-    - name: Cups socket enable
-      command: systemctl disable cups.service && systemctl enable cups.socket
+   tasks:
+   - name: Disable cups.service
+     systemd:
+     name: cups.service
+#     state: started
+     enabled: no
+     
+- hosts: all
+   tasks:
+   - name: Enable cups.service
+     systemd:
+     name: cups.socket
+     enabled: yes 
