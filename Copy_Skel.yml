@@ -2,8 +2,8 @@
   tasks:
   - name: Ansible copy file force
     copy:
-      src: /etc/skel/.config
-      dest: /home/user/.config
+      src: /etc/skel/.config/*
+      dest: /home/user/.config/
       owner: user
       group: users
       mode: 0644
@@ -13,8 +13,8 @@
   tasks:
   - name: Ansible copy file force
     copy:
-      src: /etc/skel/.local
-      dest: /home/user/.local
+      src: /etc/skel/.local/*
+      dest: /home/user/.local/
       owner: user
  #    group: users
       mode: 0644
