@@ -1,9 +1,9 @@
-#upgade
+#update
 - hosts: all
   tasks:
   - name: Update all packages to the latest version
     apt:
-      upgrade: yes
+      upgrade: no
       update_cache: yes
       cache_valid_time: 86400 #One day
       
