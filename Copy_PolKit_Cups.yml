@@ -13,9 +13,9 @@
   tasks:
   - name: Ansible copy file force
     copy:
-      src: file/org.opensuse.cupspkhelper.mechanism.policy
-      dest: /usr/share/polkit-1/actions/org.opensuse.cupspkhelper.mechanism.policy
- #     owner: user
-#      group: user
- #     mode: 0644
+      src: file/system-config-printer.desktop
+      dest: /home/user/Рабочий стол/system-config-printer.desktop
+      owner: user
+      group: user
+      mode: 0644
       force: yes
