@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Link
+Name=Настройки принтера
+Icon=printer
+URL=/usr/share/applications/system-config-printer.desktop
+
