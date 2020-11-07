@@ -1,14 +1,11 @@
 #Ставим Firefox-esr
 - hosts: all
+  tasks:
+  - name: Update firefox-esr
   apt:
-  - name: Update firefox-esr:
-    name: firefox-esr
+    pkg:
+    - firefox-esr
+    - firefox-esr-l10n-ru
     state: latest
     update_cache: yes
     
-- hosts: all
-  apt:
-  - name: Update firefox-esr:
-    name: firefox-esr-l10n-ru
-    state: latest  
-    update_cache: no
