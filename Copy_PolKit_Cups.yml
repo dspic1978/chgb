@@ -30,17 +30,23 @@
       group: users
       mode: 0644
       force: yes
+      
+- hosts: all
+  tasks:
+  - name: сreate directory
+      file: path=/home/user/.config/autostart
+      state: directory
+      owner: user
+      group: users
+      mode: 0644
 
 - hosts: all
   tasks:
   - name: Ansible copy blokirovshik conf
     copy:
-      src: /etc/skel/.config/autostart
-      dest: /home/user/.config/autostart
+      src: /etc/skel/.config/autostart/light-locker.desktop
+      dest: /home/user/.config/autostart/light-locker.desktop
       owner: user
       group: users
       mode: 0644
-      remote_src: yes
-      directory_mode: yes
       force: yes
-      
