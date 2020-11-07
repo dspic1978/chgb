@@ -22,6 +22,17 @@
       
 - hosts: all
   tasks:
+  - name: Ansible copy peazip.desktop
+    copy:
+      src: /etc/skel/.local/share/applications/peazip.desktop
+      dest: /home/user/.local/share/applications/peazip.desktop 
+      owner: user
+      group: users
+      mode: 0644
+      force: yes
+
+- hosts: all
+  tasks:
   - name: Ansible copy blokirovshik conf
     copy:
       src: /etc/skel/.config/autostart
@@ -33,13 +44,3 @@
       directory_mode: yes
       force: yes
       
-- hosts: all
-  tasks:
-  - name: Ansible copy peazip.desktop
-    copy:
-      src: /etc/skel/.local/share/applications/peazip.desktop
-      dest: /home/user/.local/share/applications/peazip.desktop 
-      owner: user
-      group: users
-      mode: 0644
-      force: yes
