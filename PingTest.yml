@@ -1,8 +1,4 @@
 - hosts: all
-  
-  tasks:
-  name: Check connectivity to remote servers
-  hosts: all
   tasks:
     - name: ping
       ping:
