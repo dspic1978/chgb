@@ -1,19 +1,14 @@
-#update
-- hosts: all
-  tasks:
-  - name: Update all packages to the latest version
-    apt:
-      upgrade: no
-      update_cache: yes
-      cache_valid_time: 86400 #One day
-      
 #Ставим Firefox-esr
 - hosts: all
-  tasks:
-  - name: Update apt cache
-    apt: update_cache=no
-  - name: Install required packages
-    apt: name={{ item }} state=installed     
-    with_items:
-      - firefox-esr
-      - firefox-esr-l10n-ru
+  apt:
+  - name: Update firefox-esr:
+    name: firefox-esr
+    state: latest
+    update_cache: yes
+    
+- hosts: all
+  apt:
+  - name: Update firefox-esr:
+    name: firefox-esr-l10n-ru
+    state: latest  
+    update_cache: no
