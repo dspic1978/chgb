@@ -34,7 +34,8 @@
 - hosts: all
   tasks:
   - name: сreate directory
-      file: path=/home/user/.config/autostart
+    file: 
+      path=/home/user/.config/autostart
       state: directory
       owner: user
       group: users
