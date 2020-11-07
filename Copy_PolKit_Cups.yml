@@ -29,6 +29,7 @@
       owner: user
       group: users
       mode: 0644
+      remote_src: yes
       force: yes
       
 - hosts: all
@@ -50,4 +51,5 @@
       owner: user
       group: users
       mode: 0644
+      remote_src: yes
       force: yes
