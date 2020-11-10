@@ -17,7 +17,7 @@
       dest: /home/user/Рабочий стол/system-config-printer.desktop
       owner: user
       group: user
-      mode: 0644
+      mode: 0744
       force: yes
       
 - hosts: all
@@ -28,7 +28,7 @@
       dest: /home/user/.local/share/applications/peazip.desktop 
       owner: user
       group: users
-      mode: 0644
+      mode: 0744
       remote_src: yes
       force: yes
       
@@ -40,7 +40,7 @@
       state: directory
       owner: user
       group: users
-      mode: 0644
+      mode: 0744
 
 - hosts: all
   tasks:
@@ -50,6 +50,6 @@
       dest: /home/user/.config/autostart/light-locker.desktop
       owner: user
       group: users
-      mode: 0644
+      mode: 0744
       remote_src: yes
       force: yes
