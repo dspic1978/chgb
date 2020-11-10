@@ -1,9 +1,0 @@
-- hosts: all
-  tasks:
-  - name: Make my directory 744
-    file: 
-      path: /home/user/.config/autostart
-      state: directory
-      owner: user
-      group: users
-      mode: 0744
