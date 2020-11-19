@@ -3,8 +3,7 @@
   - name: Disable cups.service
     gather_facts: no
     systemd:
-      gather_facts: no
-      name: cups.service
+       name: cups.service
 #      state: started
       enabled: no
      
@@ -12,6 +11,5 @@
   tasks:
   - name: Enable cups.service
     systemd:
-      gather_facts: no
       name: cups.socket
       enabled: yes 
