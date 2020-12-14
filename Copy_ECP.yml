@@ -3,7 +3,7 @@
   - name: Ansible copy file force
     copy:
       src: file/ECP.desktop
-      dest: /lib/systemd/system/x11vnc.service 
+      dest: /home/user/Рабочий стол/ECP.desktop
 #      owner: chgb_user
 #      group: root
       mode: 0777
