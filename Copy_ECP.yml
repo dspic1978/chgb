@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+  - name: Ansible copy file force
+    copy:
+      src: file/ECP.desktop
+      dest: /lib/systemd/system/x11vnc.service 
+#      owner: chgb_user
+#      group: root
+      mode: 0777
+      force: yes
