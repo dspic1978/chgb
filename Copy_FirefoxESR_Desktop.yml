@@ -5,6 +5,6 @@
       src: file/firefox.desktop
       dest: /home/user/Рабочий стол/firefox.desktop 
       owner: user
-      group: user
+      group: users
       mode: 0644
       force: yes
