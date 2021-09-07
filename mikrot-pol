@@ -1,6 +1,0 @@
-[fap]
-pol2 ansible_host=109.196.143.44
-pol3 ansible_host=109.196.143.34
-pol4 ansible_host=109.196.143.45
-pol5 ansible_host=109.196.143.59
-pol-foki ansible_host=83.219.1.145
