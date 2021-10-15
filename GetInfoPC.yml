@@ -2,11 +2,5 @@
   tasks:
   - name: GetInfoPC
     ansible.builtin.debug:
-    var: ansible_facts
-    copy:
-      src: file/x11vnc.service
-      dest: /lib/systemd/system/x11vnc.service 
-#      owner: chgb_user
-#      group: root
-      mode: 0644
-      force: yes
+      var: ansible_facts
+      ansible_facts.hostname
