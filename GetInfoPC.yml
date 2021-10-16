@@ -1,6 +1,6 @@
 - hosts: all
   tasks:
-    - name: GetInfoPC
-      ansible.builtin.debug:
+    - name: Create directory for ansible custom facts
+      ansible_facts.hostname
         var: ansible_facts
              ansible_facts.hostname
