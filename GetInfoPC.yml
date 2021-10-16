@@ -3,3 +3,4 @@
     - name: GetInfoPC
       ansible.builtin.debug:
         var: ansible_facts
+           ansible_facts.hostname
