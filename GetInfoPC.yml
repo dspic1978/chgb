@@ -1,8 +1,7 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - shell: vipnetclient info|grep "Host name"
-      register: vipnetclient
-
-    # Print the shell task's stdout.
-    - debug: msg={{ vipnetclient.stdout }}
+    ansible.builtin.shell: |       # Multiple commands in Ansible shell module
+      echo vipnetclient info|grep "Host name"   >> file/host
+      echo "This will go in memory file">> file/host
+  
