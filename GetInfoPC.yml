@@ -1,4 +1,8 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - shell: hosname|vipnetclient info|grep "Host name"
+    - shell: vipnetclient info|grep "Host name"
+      register: vipnetclient
+
+    # Print the shell task's stdout.
+    - debug: msg={{ vipnetclient.stdout }}
