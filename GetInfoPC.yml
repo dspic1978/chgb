@@ -1,6 +1,4 @@
-- hosts: all
+  hosts: all
+  gather_facts: no
   tasks:
-    - name: Create directory for ansible custom facts
-      ansible_facts.hostname
-        var: ansible_facts
-             ansible_facts.hostname
+    - shell: hosname|vipnetclient info|grep "Host name"
