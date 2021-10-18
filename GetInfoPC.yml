@@ -4,6 +4,9 @@
     - name: Create multiple text file in tmp directory with shell module
       shell: "{{ item }}"
       with_items:
-         - hostname  > file/host
-         - vipnetclient info|grep "Host name"  > file/host
-         - echo "-----------------------------------------"  > file/host
+         - hostname
+           register: hostname
+         - vipnetclient info|grep "Host name"
+           register: vipnetclient
+       - debug: msg={{ hostname.stdout }}
+       - debug: msg={{ vipnetclient.stdout }}
