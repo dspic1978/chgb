@@ -5,4 +5,3 @@
         ansible.builtin.shell: |
           echo vipnetclient info|grep "Host name"   >> file/host
           echo "This will go in memory file">> file/host
-        become: true  
