@@ -5,8 +5,8 @@
       shell: "{{ item }}"
       with_items:
          - hostname
-             register: hostname
+         register: hostname
          - vipnetclient info|grep "Host name"
-             register: vipnetclient
+         register: vipnetclient
       - debug: msg={{ hostname.stdout }}
       - debug: msg={{ vipnetclient.stdout }}
