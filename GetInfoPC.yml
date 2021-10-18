@@ -2,6 +2,7 @@
   gather_facts: no
   tasks:
     - name: Create multiple text file in tmp directory with shell module
-        shell:  |
-          echo vipnetclient info|grep "Host name"   >> file/host
-          echo "This will go in memory file">> file/host
+        shell: "{{ item }}"
+        with_items:
+           - echo "hello"
+           - echo "hello2"
