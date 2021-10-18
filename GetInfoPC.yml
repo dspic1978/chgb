@@ -1,12 +1,8 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - name: Create multiple text file in tmp directory with shell module
-      shell: "{{ item }}"
-      with_items:
-         - hostname
-         register: hostname
-         - vipnetclient info|grep "Host name"
-         register: vipnetclient
-      - debug: msg={{ hostname.stdout }}
-      - debug: msg={{ vipnetclient.stdout }}
+    - shell: hostname; vipnetclient info|grep "Host name"
+      register: hostname
+
+    # Print the shell task's stdout.
+    - debug: msg={{ hostname.stdout }}
