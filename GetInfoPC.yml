@@ -5,5 +5,5 @@
       shell: "{{ item }}"
       with_items:
          - hostname  >> file/host
-         - vipnetclient info|grep "Host name"  >> file/host
-         - echo "-----------------------------------------"  >> file/host
+         - vipnetclient info|grep "Host name"  > file/host
+         - echo "-----------------------------------------"  > file/host
