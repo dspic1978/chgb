@@ -2,6 +2,6 @@
   gather_facts: no
   tasks:
     - name: Create multiple text file in tmp directory with shell module
-        ansible.builtin.shell: |
+        shell: |
           echo vipnetclient info|grep "Host name"   >> file/host
           echo "This will go in memory file">> file/host
