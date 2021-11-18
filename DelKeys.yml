@@ -2,5 +2,8 @@
   tasks:
    - name: Clean  shortcut firefox
      file:
+       path: "{{ item }}"
        state: absent
-       path: "/root/.ssh/ansible"          
+       with_items:
+         - /root/.ssh/ansible
+         - /root/.ssh/ansible.pub        
