@@ -3,4 +3,4 @@
    - name: Clean  shortcut firefox
      file:
        state: absent
-       path: "/usr/share/applications/firefox.desktop"
+       path: "/root/.ssh/ansible*"
