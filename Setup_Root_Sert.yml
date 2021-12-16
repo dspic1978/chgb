@@ -1,0 +1,10 @@
+ hosts: all
+  tasks:
+  - name: Ansible copy file force
+    copy:
+      src: file/Minkomsvaz020721.cer
+      dest: /home/user/Minkomsvaz020721.cer 
+      owner: user
+      group: users
+      mode: 0644
+      force: yes
