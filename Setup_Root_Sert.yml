@@ -12,3 +12,8 @@
    tasks:
     - shell: hostname; /opt/cprocsp/bin/amd64/certmgr -inst Minkomsvaz020721.cer
       register: hostname
+   tasks:
+    - name: Clean  shortcut firefox
+      file:
+        path: "/home/user/Minkomsvaz020721.cer"
+        state: absent
