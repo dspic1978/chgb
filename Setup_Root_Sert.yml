@@ -1,16 +1,14 @@
--hosts: all
- gather_facts: no
-  tasks:
-  - name: Ansible copy file force
-    copy:
-      src: file/Minkomsvaz020721.cer
-      dest: /home/user/Minkomsvaz020721.cer 
-      owner: user
-      group: users
-      mode: 0644
-      force: yes
 - hosts: all
   gather_facts: no
-  tasks:
-    - shell: hostname; vipnetclient info|grep "Host name"
+   tasks:
+   - name: Ansible copy file force
+     copy:
+       src: file/Minkomsvaz020721.cer
+       dest: /home/user/Minkomsvaz020721.cer 
+       owner: user
+       group: users
+       mode: 0644
+       force: yes
+   tasks:
+    - shell: hostname; /opt/cprocsp/bin/amd64/certmgr -inst Minkomsvaz020721.cer
       register: hostname
