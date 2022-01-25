@@ -2,7 +2,7 @@
   gather_facts: no
   tasks:
   - name: Ansible copy file force
-      copy:
+    copy:
       src: file/Minkomsvaz020721.cer
       dest: /home/user/Minkomsvaz020721.cer 
       owner: user
@@ -14,6 +14,6 @@
       register: hostname
   tasks:
   - name: Clean  shortcut firefox
-      file:
+    file:
         path: "/home/user/Minkomsvaz020721.cer"
         state: absent
