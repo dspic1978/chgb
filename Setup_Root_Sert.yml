@@ -1,19 +1,19 @@
 - hosts: all
   gather_facts: no
-   tasks:
-   - name: Ansible copy file force
-     copy:
-       src: file/Minkomsvaz020721.cer
-       dest: /home/user/Minkomsvaz020721.cer 
-       owner: user
-       group: users
-       mode: 0644
-       force: yes
-   tasks:
+  tasks:
+  - name: Ansible copy file force
+      copy:
+      src: file/Minkomsvaz020721.cer
+      dest: /home/user/Minkomsvaz020721.cer 
+      owner: user
+      group: users
+      mode: 0644
+      force: yes
+  tasks:
     - shell: hostname; /opt/cprocsp/bin/amd64/certmgr -inst Minkomsvaz020721.cer
       register: hostname
-   tasks:
-    - name: Clean  shortcut firefox
+  tasks:
+  - name: Clean  shortcut firefox
       file:
         path: "/home/user/Minkomsvaz020721.cer"
         state: absent
