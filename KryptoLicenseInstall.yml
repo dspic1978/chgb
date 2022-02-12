@@ -1,0 +1,5 @@
+- hosts: all
+  gather_facts: no
+  tasks:
+    - shell: hostname; /opt/cprocsp/sbin/amd64/cpconfig -license -set "{{ var1 }}"
+      register: hostname
