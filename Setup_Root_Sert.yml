@@ -15,7 +15,7 @@
   tasks:
     - shell: /opt/cprocsp/bin/amd64/certmgr -install /home/user/Minkomsvaz020721.cer
       args:
-      executable: /bin/bash
+        executable: /bin/bash
       
 - hosts: all
   gather_facts: no      
