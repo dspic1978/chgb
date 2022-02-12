@@ -13,8 +13,7 @@
 - hosts: all
   gather_facts: no      
   tasks:
-    - shell: hostname; /opt/cprocsp/bin/amd64/certmgr -inst /home/user/Minkomsvaz020721.cer
-      register: hostname
+    - shell: /opt/cprocsp/bin/amd64/certmgr -inst /home/user/Minkomsvaz020721.cer
       
 - hosts: all
   gather_facts: no      
