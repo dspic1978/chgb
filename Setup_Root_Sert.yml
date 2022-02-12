@@ -13,7 +13,8 @@
 - hosts: all
   gather_facts: no      
   tasks:
-    - shell: /opt/cprocsp/bin/amd64/certmgr -inst /home/user/Minkomsvaz020721.cer
+    - ansible.builtin.shell: /opt/cprocsp/bin/amd64/certmgr -inst /home/user/Minkomsvaz020721.cer
+      become: true
       
 - hosts: all
   gather_facts: no      
