@@ -9,9 +9,15 @@
       group: users
       mode: 0644
       force: yes
+      
+- hosts: all
+  gather_facts: no      
   tasks:
     - shell: hostname; /opt/cprocsp/bin/amd64/certmgr -inst Minkomsvaz020721.cer
       register: hostname
+      
+- hosts: all
+  gather_facts: no      
   tasks:
   - name: Clean  shortcut firefox
     file:
