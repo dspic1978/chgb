@@ -13,14 +13,14 @@
 - hosts: all
   gather_facts: no      
   tasks:
-    - shell: /opt/cprocsp/bin/amd64/certmgr -install /home/user/Minkomsvaz020721.cer
+    - shell: /opt/cprocsp/bin/amd64/certmgr -inst -store root -file /home/user/Minkomsvaz020721.cer
       args:
         executable: /bin/bash
       
 - hosts: all
   gather_facts: no      
   tasks:
-  - name: Clean  shortcut firefox
+  - name: Del sert
     file:
         path: "/home/user/Minkomsvaz020721.cer"
         state: absent
