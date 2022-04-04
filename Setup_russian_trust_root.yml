@@ -4,7 +4,7 @@
   - name: Copy sert
     copy:
       src: file/SertRoot/
-      dest: /home/user/SertRoot/
+      dest: /home/user/SertRoot/ mode=0777
       owner: user
       group: users
       mode: 0644
