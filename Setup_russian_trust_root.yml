@@ -1,0 +1,26 @@
+- hosts: all
+  gather_facts: no
+  tasks:
+  - name: Copy sert
+    copy:
+      src: file/Minkomsvaz020721.cer
+      dest: /home/user/russian_trust_root_ca.crt 
+      owner: user
+      group: users
+      mode: 0644
+      force: yes
+      
+- hosts: all
+  gather_facts: no      
+  tasks:
+    - shell: /opt/cprocsp/bin/amd64/certmgr -inst -store root -file /home/user/russian_trust_root_ca.crt
+      args:
+        executable: /bin/bash
+      
+- hosts: all
+  gather_facts: no      
+  tasks:
+  - name: Del sert
+    file:
+        path: "/home/user/russian_trust_root_ca.crt"
+        state: absent
