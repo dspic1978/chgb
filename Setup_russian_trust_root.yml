@@ -3,8 +3,8 @@
   tasks:
   - name: Copy sert
     copy:
-      src: file/russian_trust_root_ca.cer
-      dest: /home/user/russian_trust_root_ca.cer
+      src: file/SertRoot/
+      dest: /home/user/SertRoot/
       owner: user
       group: users
       mode: 0644
@@ -13,7 +13,7 @@
 - hosts: all
   gather_facts: no      
   tasks:
-    - shell: /opt/cprocsp/bin/amd64/certmgr -inst -store root -file /home/user/russian_trust_root_ca.cer
+    - shell: /home/user/SertRoot/CAtoCert9.sh
       args:
         executable: /bin/bash
       
@@ -22,5 +22,5 @@
   tasks:
   - name: Del sert
     file:
-        path: "/home/user/russian_trust_root_ca.cer"
+        path: "/home/user/SertRoot/"
         state: absent
