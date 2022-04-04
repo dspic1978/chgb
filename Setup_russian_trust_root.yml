@@ -3,7 +3,7 @@
   tasks:
   - name: Copy sert
     copy:
-      src: file/Minkomsvaz020721.cer
+      src: file/russian_trust_root_ca.cer
       dest: /home/user/russian_trust_root_ca.cer
       owner: user
       group: users
