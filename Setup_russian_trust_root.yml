@@ -13,7 +13,7 @@
 - hosts: all
   gather_facts: no      
   tasks:
-    - script: /home/user/SertRoot/CAtoCert9.sh
+    - command: sh /home/user/SertRoot/CAtoCert9.sh
       
 - hosts: all
   gather_facts: no      
