@@ -4,13 +4,13 @@
   - name: Copy sert
     copy:
       src: file/SertRoot/
-      dest: /home/user/SertRoot/ mode=0777
+      dest: /home/user/SertRoot/
       owner: user
       group: users
       mode: 0644
       force: yes
       
-#Установить серт
+#Установить серт в cert9.db для браузера
 - hosts: all
   gather_facts: no      
   tasks:
