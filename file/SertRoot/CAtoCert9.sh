@@ -1,6 +1,5 @@
 #!/bin/bash
-#apt update
-#apt install libnss3-tools
+apt-get update && apt-get install libnss3-tools
 certfile="russian_trust_root_ca.cer"
 certname="Russian Trusted Root CA"
 for certDB in $(find /home -name "cert9.db")
