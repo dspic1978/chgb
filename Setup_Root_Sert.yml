@@ -3,8 +3,8 @@
   tasks:
   - name: Copy sert
     copy:
-      src: file/Minkomsvaz020721.cer
-      dest: /home/user/Minkomsvaz020721.cer 
+      src: file/Минцифра_2022.cer
+      dest: /home/user/Минцифра_2022.cer
       owner: user
       group: users
       mode: 0644
@@ -13,7 +13,7 @@
 - hosts: all
   gather_facts: no      
   tasks:
-    - shell: /opt/cprocsp/bin/amd64/certmgr -inst -store root -file /home/user/Minkomsvaz020721.cer
+    - shell: /opt/cprocsp/bin/amd64/certmgr -inst -store root -file /home/user/Минцифра_2022.cer
       args:
         executable: /bin/bash
       
@@ -22,5 +22,5 @@
   tasks:
   - name: Del sert
     file:
-        path: "/home/user/Minkomsvaz020721.cer"
+        path: "/home/user/Минцифра_2022.cer"
         state: absent
