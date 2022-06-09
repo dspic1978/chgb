@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+  - name: Update vu
+    apt:
+      pkg:
+      - firefox-esr
+      - firefox-esr-l10n-ru
+      state: latest
+      update_cache: yes
+    
