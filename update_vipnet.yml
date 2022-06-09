@@ -1,10 +1,26 @@
 - hosts: all
+  gather_facts: no
   tasks:
-  - name: Update vu
-    apt:
-      pkg:
-      - firefox-esr
-      - firefox-esr-l10n-ru
-      state: latest
-      update_cache: yes
-    
+  - name: Copy sert
+    copy:
+      src: file/vipnetclient_gost_ru_amd64_4.12.2-12236.deb
+      dest: /home/user/vipnetclient_gost_ru_amd64_4.12.2-12236.deb
+      owner: user
+      group: users
+      mode: 0644
+      force: yes
+      
+- hosts: all
+  gather_facts: no      
+  tasks:
+    - shell: dpkg -i /home/user/vipnetclient_gost_ru_amd64_4.12.2-12236.deb
+      args:
+        executable: /bin/bash
+      
+- hosts: all
+  gather_facts: no      
+  tasks:
+  - name: Del sert
+    file:
+        path: "/home/user/vipnetclient_gost_ru_amd64_4.12.2-12236.deb"
+        state: absent
