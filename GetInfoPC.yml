@@ -1,7 +1,7 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - shell: hostname; vipnetclient info|grep "Host name"
+    - shell: hostname; vipnetclient info|grep "Host name"; cat /proc/cpuinfo|grep "model name"
       register: hostname
 
     # Print the shell task's stdout.
