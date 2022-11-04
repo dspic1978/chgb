@@ -1,7 +1,7 @@
 - hosts: all
   gather_facts: no
   tasks:
-  - name: Copy sert
+  - name: Copy vipnet
     copy:
       src: file/vipnetclient_gost_ru_amd64_4.12.2-12236.deb
       dest: /home/user/vipnetclient_gost_ru_amd64_4.12.2-12236.deb
