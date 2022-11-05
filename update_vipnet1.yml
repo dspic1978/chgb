@@ -5,4 +5,4 @@
       args:
       with_items:
        - "vipnetclient stop"
-       - "vipnetclient start"
+      # - "vipnetclient start"
