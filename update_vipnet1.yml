@@ -8,8 +8,8 @@
         msg={{ my_package_check_deb.stdout }} 	# Выводим my_package_check_deb на экран	
         
     - name: fail if already run on host
-        fail: msg="vipnetclient 4.12.2 уже установлен на этом ПК"
-      when: my_package_check_deb.stdout == "vipnetclient\t4.12.2-12236" #если выполняется, выполняем copy vipnetclient
+      fail: msg="Здесь нечего обновлять!!!"
+      when: my_package_check_deb.stdout != "vipnetclient\t4.10.0-6521" #если выполняется, выполняем copy vipnetclient
      
     - name: Copy vipnetclient
       copy:
