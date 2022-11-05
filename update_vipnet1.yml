@@ -2,7 +2,7 @@
   tasks:
     - name: change iplir.conf                                #меняем на mssdecrease= 200
       replace: 
-        path: "/root/.vipnet/data/user/iplir.conf"
+        dest: "/root/.vipnet/data/user/iplir.conf"
         regexp: 'mssdecrease= 0'  #строка, которую заменяем
         replace: 'mssdecrease= 200' #строка, на которую заменяем
         
