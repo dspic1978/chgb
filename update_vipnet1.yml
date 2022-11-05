@@ -1,19 +1,48 @@
 - hosts: all
   tasks:
-   - name: restart vipnetclient                      #перезапуск vipnetclient
-     command: "{{ item }}"
-     args:
-     with_items:
-      - "vipnetclient stop"
+    - name: Out version vipnetclient
+      command: dpkg-query -W vipnetclient 		#проверяем наличие установленного пакета vipnetclient, если пакета нет, останов, далее не выполняется
+      register: my_package_check_deb			#записываем результат в переменную my_package_check_deb, если пакета нет, останов
+    - name: out version vipnet"
+      debug: 
+        msg={{ my_package_check_deb.stdout }} 	# Выводим my_package_check_deb на экран	
+        
+    - name: fail if already run on host
+        fail: msg="vipnetclient 4.12.2 уже установлен на этом ПК"
+      when: my_package_check_deb.stdout == "vipnetclient\t4.12.2-12236" #если выполняется, выполняем copy vipnetclient
+     
+    - name: Copy vipnetclient
+      copy:
+        src: file/vipnetclient_gost_ru_amd64_4.12.2-12236.deb
+        dest: /home/user/vipnetclient_gost_ru_amd64_4.12.2-12236.deb
+        owner: user
+        group: users
+        mode: 0644
+        force: yes
+
+    - name: Install vipnetclient                            #install vipnetclient
+      apt: 
+        deb="/home/user/vipnetclient_gost_ru_amd64_4.12.2-12236.deb"
+
+    - name: Delete packet vipnetclient.dpkg                 #удаляем vipnetclient
+      file:
+        path: "/home/user/vipnetclient_gost_ru_amd64_4.12.2-12236.deb"
+        state: absent
+
+    - name: stop vipnetclient                                #stop vipnetclient
+      command: "{{ item }}"
+      args:
+      with_items:
+       - "vipnetclient stop"
          
-   - name: change iplir.conf                                #меняем на mssdecrease= 200
-     lineinfile: 
-        dest: /root/.vipnet/data/user/iplir.conf
-        regexp: ^mssdecrease=
-        line: mssdecrease= 200
+    - name: change iplir.conf                                #меняем на mssdecrease= 200
+      lineinfile: 
+         dest: /root/.vipnet/data/user/iplir.conf
+         regexp: ^mssdecrease=
+         line: mssdecrease= 200
                 
-   - name: restart vipnetclient                      #перезапуск vipnetclient
-     command: "{{ item }}"
-     args:
-     with_items:
-      - "vipnetclient start"
+    - name: start vipnetclient                      #start vipnetclient
+      command: "{{ item }}"
+      args:
+      with_items:
+       - "vipnetclient start"
