@@ -1,24 +1,8 @@
 - hosts: all
   tasks:
-    - name: Copy vipnet
-      command: dpkg-query -W vipnetclient 		#проверяем наличие установленного пакета vipnetclient
-      register: my_package_check_deb			#записываем результат в переменную my_package_check_deb, если пакета нет, останов
-    - name: out version vipnet"
-      debug: 
-        msg={{ my_package_check_deb.stdout }} 	# Выводим my_package_check_deb на экран	
-      when: my_package_check_deb.stdout == "vipnetclient\t4.10.0-6521" #если выполняется, выполняем строку выше
-      
-    - name: Copy vipnet
-      copy:
-        src: file/vipnetclient_gost_ru_amd64_4.12.2-12236.deb
-        dest: /home/user/vipnetclient_gost_ru_amd64_4.12.2-12236.deb
-        owner: user
-        group: users
-        mode: 0644
-        force: yes
-      when: my_package_check_deb.stdout == "vipnetclient\t4.10.0-6521" #если выполняется, выполняем copy
-      
-    - name: Install vipnet
-      apt: 
-        deb="/home/user/vipnetclient_gost_ru_amd64_4.12.2-12236.deb"
-      when: my_package_check_deb.stdout == "vipnetclient\t4.10.0-6521" #если выполняется, выполняем copy
+    - name: restart vipnetclient
+      command: "{{ item }}"
+      args:
+      with_items:
+       - "vipnetclient stop"
+       - "vipnetclient start"
