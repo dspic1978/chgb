@@ -6,4 +6,4 @@
     - name: out version vipnet"
       debug: 
         msg={{ my_package_check_deb.stdout }} 	# Выводим my_package_check_deb на экран	
-      when: my_package_check_deb.stdout == "vipnetclient\t4.10.0-6521" #если выполняется, выполняем строку 
+      when: my_package_check_deb.stdout == "vipnetclient\t4.10.1-6521" #если выполняется, выполняем строку 
