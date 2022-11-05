@@ -4,7 +4,7 @@
       lineinfile: 
         dest: /root/.vipnet/data/user/iplir.conf
         regexp: '^mssdecrease= 0'
-        insertbefore=BOF
+        insertbefore: BOF
         line: 'mssdecrease= 200'
         backrefs: yes
         
