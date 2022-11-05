@@ -5,8 +5,7 @@
         dest: /root/.vipnet/data/user/iplir.conf
         regexp: ^mssdecrease=
         line: mssdecrease= 200
-        backrefs: yes
-        
+                
     - name: restart vipnetclient                      #перезапуск vipnetclient
       command: "{{ item }}"
       args:
