@@ -5,6 +5,7 @@
         dest: /root/.vipnet/data/user/iplir.conf
         regexp: 'mssdecrease= 0'  #строка, которую заменяем
         line: 'mssdecrease= 200' #строка, на которую заменяем
+        state: present
         
     - name: restart vipnetclient                      #перезапуск vipnetclient
       command: "{{ item }}"
