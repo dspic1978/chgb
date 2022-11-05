@@ -3,7 +3,7 @@
   tasks:
   - name: Copy vipnet
       #проверяем наличие установленного пакета
-      command: dpkg-query -W vipnetclient
-      register: my_package_check_deb
+  - command: dpkg-query -W vipnetclient
+    register: my_package_check_deb
     # Print the shell task's stdout.
-    - debug: msg={{ my_package_check_deb.stdout }}
+  - debug: msg={{ my_package_check_deb.stdout }}
