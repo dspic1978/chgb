@@ -4,5 +4,5 @@
     command: dpkg-query -W vipnetclient 		#проверяем наличие установленного пакета
     register: my_package_check_deb				#записываем результат в переменную my_package_check_deb, если пакета нет, останов 
   - debug: msg={{ my_package_check_deb.stdout }} 	# Выводим my_package_check_deb на экран
-  when: my_package_check_deb.stdout = "vipnetclient\t4.12.2-12236" #если выполняется, выполняем строку 
+  when: my_package_check_deb.stdout = "vipnetclient\t4.10.0-6521" #если выполняется, выполняем строку 
   
