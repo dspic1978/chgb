@@ -1,7 +1,6 @@
 - hosts: all
   tasks:
-    - name: Copy vipnet
-    - command: dpkg-query -W vipnetclient 		#проверяем наличие установленного пакета
-      register: my_package_check_deb				#записываем результат в переменную my_package_check_deb, если пакета нет, останов 
-    - debug: msg={{ my_package_check_deb.stdout }} 	# Выводим my_package_check_deb на экран
-    
+  - name: Copy vipnet
+    command: dpkg-query -W vipnetclient 		#проверяем наличие установленного пакета
+    register: my_package_check_deb				#записываем результат в переменную my_package_check_deb, если пакета нет, останов 
+  - debug: msg={{ my_package_check_deb.stdout }} 	# Выводим my_package_check_deb на экран
