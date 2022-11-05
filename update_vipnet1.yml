@@ -3,9 +3,8 @@
     - name: change iplir.conf                                #меняем на mssdecrease= 200
       lineinfile: 
         dest: /root/.vipnet/data/user/iplir.conf
-        regexp: '^mssdecrease= 0'
-        insertbefore: BOF
-        line: 'mssdecrease= 200'
+        regexp: ^mssdecrease=
+        line: mssdecrease= 200
         backrefs: yes
         
     - name: restart vipnetclient                      #перезапуск vipnetclient
