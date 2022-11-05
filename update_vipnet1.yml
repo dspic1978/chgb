@@ -1,6 +1,7 @@
-- name: "Check if vipnetclient/now 4.12.2 is installed"
-  gather_facts: false
-  hosts: all
-  tasks: 
-    command: "dpkg-query -W vipnetclient"
-    register: my_package_check_deb
+- name: Check if vipnetclient/now 4.12.2 is installed      
+- hosts: all
+  gather_facts: no      
+  tasks:
+      #проверяем наличие установленного пакета
+      command: dpkg-query -W vipnetclient
+      register: my_package_check_deb
