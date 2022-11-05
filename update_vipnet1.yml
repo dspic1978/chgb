@@ -1,6 +1,12 @@
 - hosts: all
   tasks:
-    - name: change iplir.conf                                #меняем на mssdecrease= 200
+    - name: restart vipnetclient                      #перезапуск vipnetclient
+      command: "{{ item }}"
+      args:
+      with_items:
+       - "vipnetclient stop"
+         
+   - name: change iplir.conf                                #меняем на mssdecrease= 200
       lineinfile: 
         dest: /root/.vipnet/data/user/iplir.conf
         regexp: ^mssdecrease=
@@ -10,5 +16,4 @@
       command: "{{ item }}"
       args:
       with_items:
-       - "vipnetclient stop"
        - "vipnetclient start"
