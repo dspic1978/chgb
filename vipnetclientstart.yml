@@ -14,7 +14,7 @@
          line: mssdecrease= 200
       
     - name: change /root/.vipnet/data2/user/iplir.conf                                #меняем на mssdecrease= 200
-      iignore_errors: yes
+      ignore_errors: yes
       lineinfile: 
          dest: /root/.vipnet/data2/user/iplir.conf
          regexp: ^mssdecrease=
