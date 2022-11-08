@@ -5,7 +5,7 @@
       args:
       with_items:
        - "vipnetclient stop"
-	   
+       
     - name: change /root/.vipnet/data/user/iplir.conf                                #меняем на mssdecrease= 200
       lineinfile: 
          dest: /root/.vipnet/data/user/iplir.conf
@@ -13,16 +13,16 @@
          line: mssdecrease= 200
       register: command_result
       failed_when: "'FAILED' in command_result.stderr"
-	  
-	- name: change /root/.vipnet/data2/user/iplir.conf                                #меняем на mssdecrease= 200
+      
+    - name: change /root/.vipnet/data2/user/iplir.conf                                #меняем на mssdecrease= 200
       lineinfile: 
          dest: /root/.vipnet/data2/user/iplir.conf
          regexp: ^mssdecrease=
          line: mssdecrease= 200
       register: command_result
       failed_when: "'FAILED' in command_result.stderr"  
-	  
-	- name: start vipnetclient                      #start vipnetclient
+ 
+    - name: start vipnetclient                      #start vipnetclient
       command: "{{ item }}"
       args:
       with_items:
