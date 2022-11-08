@@ -1,7 +1,9 @@
 - hosts: all
   tasks:
-    - name: start vipnetclient                      #start vipnetclient
-      command: "{{ item }}"
-      args:
-      with_items:
-       - "vipnetclient start"
+    - name: change iplir.conf                                #меняем на mssdecrease= 200
+      lineinfile: 
+         dest: /root/.vipnet/data/user/iplir.conf
+         regexp: ^mssdecrease=
+         line: mssdecrease= 200
+           register: command_result
+  failed_when: "'FAILED' in command_result.stderr"
