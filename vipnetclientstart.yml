@@ -1,0 +1,7 @@
+- hosts: all
+  tasks:
+    - name: start vipnetclient                      #start vipnetclient
+      command: "{{ item }}"
+      args:
+      with_items:
+       - "vipnetclient start"
