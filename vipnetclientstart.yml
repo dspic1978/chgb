@@ -7,18 +7,18 @@
        - "vipnetclient stop"
        
     - name: change /root/.vipnet/data/user/iplir.conf                                #меняем на mssdecrease= 200
+      ignore_unreachable: yes
       lineinfile: 
          dest: /root/.vipnet/data/user/iplir.conf
          regexp: ^mssdecrease=
          line: mssdecrease= 200
-         ignore_unreachable: yes
       
     - name: change /root/.vipnet/data2/user/iplir.conf                                #меняем на mssdecrease= 200
+      ignore_unreachable: yes
       lineinfile: 
          dest: /root/.vipnet/data2/user/iplir.conf
          regexp: ^mssdecrease=
          line: mssdecrease= 200
-         ignore_unreachable: yes
 
     - name: start vipnetclient                      #start vipnetclient
       command: "{{ item }}"
