@@ -15,7 +15,7 @@
       get_url:
         url: https://cachev2-mskm906.cdn.yandex.net/download.cdn.yandex.net/browser/yandex/22_11_0_2484_37676/Yandex.deb
         dest: /home/Yandex_22_11_0_2484_37676.deb
-        mode: '0644'
+        mode: 0644
 	
     - name: Install yandex-browser-stable                            #install vipnetclient
       apt: 
