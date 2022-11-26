@@ -9,33 +9,9 @@
     - name: "yandex-browser-stable/now 22.11.0.2484-1 test result"
       debug: 
         fail: msg="yandex-browser-stable/now 22.11.0.2484-1 Установлен"              #если установленн, прерываем выполнение
-      when: "'yandex-browser-stable/now 22.11.0.2484-1' in ansible_facts.packages"
+      when: "'yandex-browser-stable' in ansible_facts.packages"
 
     - name: "yandex-browser-stable/now 22.11.0.2484-1 test result"
       debug: 
         msg: "yandex-browser-stable/now 22.11.0.2484-1 не установлен"
       when: "'nginx' not in ansible_facts.packages"
-
-    - name: Download Yandex_22_11_0_2484_37676
-      get_url:
-        url: https://cachev2-mskm906.cdn.yandex.net/download.cdn.yandex.net/browser/yandex/22_11_0_2484_37676/Yandex.deb
-        dest: /home/Yandex_22_11_0_2484_37676.deb
-        mode: 0644
-
-    - name: Install yandex-browser-stable                    #install yandex-browser
-      apt: 
-        deb="/home/Yandex_22_11_0_2484_37676.deb"
-
-    - name: Delete packet vipnetclient.dpkg                 #удаляем yandex-browser.deb
-      file:
-        path: "/home/Yandex_22_11_0_2484_37676.deb"
-        state: absent
-
-    - name: Ansible copy file force
-      copy:
-        src: file/yandex.desktop
-        dest: /home/user/Рабочий стол/yandex.desktop 
-        owner: user
-        group: users
-        mode: 0644
-        force: yes
