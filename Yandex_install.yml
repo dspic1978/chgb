@@ -16,8 +16,8 @@
 
   - name: Ansible copy file force                           #копируем ярлык на рабочий стол
     copy:
-      src: file/yandex.desktop
-      dest: /home/user/Рабочий стол/yandex.desktop 
+      src: file/yandex-browser.desktop
+      dest: /home/user/Рабочий стол/yandex-browser.desktop 
       owner: user
       group: users
       mode: 0644
