@@ -17,8 +17,8 @@
 
   - name: Ansible copy file yandex-browser.desktop                          #копируем ярлык на рабочий стол
     copy:
-      src: file/yandex-browser.desktop
-      dest: /home/user/Рабочий стол/yandex-browser.desktop 
+      src: file/yandex.desktop
+      dest: /home/user/Рабочий стол/yandex.desktop 
       owner: user
       group: users
       mode: 0644
@@ -33,7 +33,7 @@
       mode: 0644
       force: yes
 
-  - name: Unarchive a file that needs to be downloaded (added in 2.0)
+  - name: Unarchive a file
     unarchive:
       src: /home/yandex-browser.zip
       dest:  /home/user/.config/yandex-browser
