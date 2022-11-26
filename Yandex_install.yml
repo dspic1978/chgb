@@ -8,7 +8,7 @@
 
     - name: "yandex-browser-stable/now 22.11.0.2484-1 test result"
       debug: 
-        fail: msg: "yandex-browser-stable/now 22.11.0.2484-1 Установлен"              #если установленн, прерываем выполнение
+        fail: msg="yandex-browser-stable/now 22.11.0.2484-1 Установлен"              #если установленн, прерываем выполнение
       when: "'yandex-browser-stable/now 22.11.0.2484-1' in ansible_facts.packages"
 
     - name: "yandex-browser-stable/now 22.11.0.2484-1 test result"
