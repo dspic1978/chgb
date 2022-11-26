@@ -15,7 +15,7 @@
     apt: 
       deb="https://cachev2-mskm906.cdn.yandex.net/download.cdn.yandex.net/browser/yandex/22_11_0_2484_37676/Yandex.deb"
 
-  - name: Ansible copy file force                           #копируем ярлык на рабочий стол
+  - name: Ansible copy file yandex-browser.desktop                          #копируем ярлык на рабочий стол
     copy:
       src: file/yandex-browser.desktop
       dest: /home/user/Рабочий стол/yandex-browser.desktop 
@@ -24,7 +24,7 @@
       mode: 0644
       force: yes
       
-  - name: Ansible copy file force                           #копируем настройки боаузера
+  - name: Ansible copy file yandex-browser.zip                         #копируем настройки боаузера
     copy:
       src: file/yandex-browser.zip
       dest: /home/yandex-browser.zip
