@@ -14,4 +14,4 @@
     - name: "yandex-browser-stable test result"
       debug: 
         msg: "yandex-browser-stable не установлен"
-      when: "'andex-browser-stable' not in ansible_facts.packages"
+      when: "'yandex-browser-stable' not in ansible_facts.packages"
