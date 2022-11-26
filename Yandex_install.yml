@@ -8,10 +8,10 @@
 
     - name: "yandex-browser-stable/now 22.11.0.2484-1 test result"
       debug: 
-        fail: msg="yandex-browser-stable/now 22.11.0.2484-1 Установлен"              #если установленн, прерываем выполнение
-      when: "'yandex-browser-stable' in ansible_facts.packages"
+        msg="yandex-browser-stable/now 22.11.0.2484-1 Установлен"              #если установленн, прерываем выполнение
+      when: "'andex-browser-stable/now 22.11.0.2484-1' in ansible_facts.packages"
 
     - name: "yandex-browser-stable/now 22.11.0.2484-1 test result"
       debug: 
         msg: "yandex-browser-stable/now 22.11.0.2484-1 не установлен"
-      when: "'nginx' not in ansible_facts.packages"
+      when: "'andex-browser-stable/now 22.11.0.2484-1' not in ansible_facts.packages"
