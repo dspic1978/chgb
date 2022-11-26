@@ -22,3 +22,18 @@
       group: users
       mode: 0644
       force: yes
+      
+  - name: Ansible copy file force                           #копируем настройки боаузера
+    copy:
+      src: file/yandex-browser.zip
+      dest: /home/yandex-browser.zip
+      owner: user
+      group: users
+      mode: 0644
+      force: yes
+
+  - name: Unarchive a file that needs to be downloaded (added in 2.0)
+    unarchive:
+      src: /home/yandex-browser.zip
+      dest:  /home/user/.config/yandex-browser
+      remote_src: yes
