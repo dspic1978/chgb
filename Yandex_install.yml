@@ -1,6 +1,12 @@
 - hosts: all
   gather_facts: no
   tasks: 
-  - name: Install yandex-browser-stable                    #install yandex-browser
-    apt: 
-      deb="https://cachev2-mskm906.cdn.yandex.net/download.cdn.yandex.net/browser/yandex/22_11_0_2484_37676/Yandex.deb"
+  
+  - name: Out version yandex-browser-stable
+    command: dpkg-query -W yandex-browser-stable		#проверяем наличие установленного пакета vipnetclient, если пакета нет, останов, далее не выполняется
+    register: my_package_check_deb			#записываем результат в переменную my_package_check_deb, если пакета нет, останов
+      
+  - name: fail if already run on host
+    fail: msg="Найден установленный yandex-browser-stable/now 22.11.0.2484-1, останов"   #прекратить выполнение плейбука по ошибке (fail) с выводом сообщения
+    when: my_package_check_deb.stdout = "yandex-browser-stable/now 22.11.0.2484-1" #Если нет версии 4.10.0-6521 для обновления, выполнить верхний код 
+    
