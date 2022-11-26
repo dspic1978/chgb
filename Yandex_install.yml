@@ -3,11 +3,11 @@
   tasks: 
   
   - name: Out version yandex-browser-stable
-    command: dpkg-query -W yandex-browser-stable		#проверяем наличие установленного пакета vipnetclient, если пакета нет, останов, далее не выполняется
-    register: my_package_check_deb			#записываем результат в переменную my_package_check_deb, если пакета нет, останов
+    ignore_errors: yes
+    command: dpkg-query -W yandex-browser-stable		#запро версии yandex-browser-stable
+    register: my_package_check_deb			#записываем результат в переменную my_package_check_deb
       
   - name: fail if already run on host
-    ignore_errors: yes
     fail: msg="Найден установленный yandex-browser-stable\t22.11.0.2484-1, останов"   #прекратить выполнение плейбука по ошибке (fail) с выводом сообщения
     when: my_package_check_deb.stdout == "yandex-browser-stable\t22.11.0.2484-1" #Если нет yandex-browser-stable\t22.11.0.2484-1, выполнить верхний код 
 
