@@ -36,7 +36,7 @@
   - name: сreate directory
     file:
       path: /home/user/.config/yandex-browser
-      mode: 0644
+      mode: 0744
       owner: user
       group: users
       state: directory      
@@ -46,3 +46,6 @@
       src: /home/yandex-browser.zip
       dest:  /home/user/.config/yandex-browser
       remote_src: yes
+      mode: 0744
+      owner: user
+      group: users
