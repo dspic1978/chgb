@@ -33,13 +33,13 @@
       mode: 0644
       force: yes
 
-- name: сreate directory
-  file:
-    path=/home/user/.config/yandex-browser
-    mode: 0644
-    owner: user
-    group: users
-    state: directory      
+ - name: сreate directory
+   file:
+     path=/home/user/.config/yandex-browser
+     mode: 0644
+     owner: user
+     group: users
+     state: directory      
 
   - name: Unarchive a file
     unarchive:
