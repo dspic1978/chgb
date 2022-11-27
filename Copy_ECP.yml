@@ -3,11 +3,11 @@
 
    - name: copy file force                                #stop vipnetclient
      copy:
-     src: file/ECP.desktop
-     mode: 0777
-     force: yes
-     dest: "{{ item }}"
-     args:
-     with_items:
-      - "/home/user/Рабочий стол/ECP.desktop"
-      - "/home/user/Desktop/ECP.desktop"
+       src: file/ECP.desktop
+       mode: 0777
+       force: yes
+       dest: "{{ item }}"
+       args:
+       with_items:
+        - "/home/user/Рабочий стол/ECP.desktop"
+        - "/home/user/Desktop/ECP.desktop"
