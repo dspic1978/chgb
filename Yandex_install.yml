@@ -11,7 +11,6 @@
   - name: Stop playbook allready install yandex-browse 
     #fail: msg="Найден установленный yandex-browser-stable\t22.11.0.2484-1, останов"   #прекратить выполнение плейбука по ошибке (fail) с выводом сообщения
     fail: msg="Сдесь уже установлен yandex-browser"                                                                     #прекратить выполнение плейбука на хосте
-    meta: clear_host_errors
     when: my_package_check_deb.stdout == "yandex-browser-stable\t22.11.0.2484-1" #Если есть yandex-browser-stable\t22.11.0.2484-1, выполнить верхний код 
 
   - name: Install yandex-browser-stable                    #install yandex-browser
