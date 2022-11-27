@@ -3,7 +3,7 @@
   tasks:
   
    - stat: test path
-       path: /home/user/Рабочий стол
+     path: /home/user/Рабочий стол
      register: st
      failed_when: st.stat.exists
 
