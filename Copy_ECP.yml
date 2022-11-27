@@ -1,19 +1,19 @@
 - hosts: all
   gather_facts: no
   tasks:
-  
-   - stat: test path
-     path: /home/user/Рабочий стол
-     register: st
-     failed_when: st.stat.exists
 
-   - name: copy file force                                #stop vipnetclient
-     copy:
-       src: file/ECP.desktop
-       dest: "{{ item }}"
-       mode: 0777
-       force: yes
-     with_items:
+  - stat: test path
+    path: /home/user/Рабочий стол
+    register: st
+    failed_when: st.stat.exists
+
+  - name: copy file force                                #stop vipnetclient
+    copy:
+      src: file/ECP.desktop
+      dest: "{{ item }}"
+      mode: 0777
+      force: yes
+    with_items:
        - /home/user/Рабочий стол/ECP.desktop
        - /home/user/Desktop/ECP.desktop
        #register: my_path_check		                    	#записываем результат в переменную my_package_check_deb
