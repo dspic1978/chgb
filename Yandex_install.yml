@@ -6,7 +6,9 @@
     ignore_errors: yes
     command: dpkg-query -W yandex-browser-stable		#запро версии yandex-browser-stable
     register: my_package_check_deb			#записываем результат в переменную my_package_check_deb
-      
+    msg: "Yandex-browser не установлен, ставим"
+    when: "'FAILED' in my_package_check_deb.stdout"
+
   - name: fail if already run on host
     fail: msg="Найден установленный yandex-browser-stable\t22.11.0.2484-1, останов"   #прекратить выполнение плейбука по ошибке (fail) с выводом сообщения
     when: my_package_check_deb.stdout == "yandex-browser-stable\t22.11.0.2484-1" #Если нет yandex-browser-stable\t22.11.0.2484-1, выполнить верхний код 
