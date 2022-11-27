@@ -3,9 +3,10 @@
   tasks: 
   
   - name: Out version yandex-browser-stable
-    ignore_errors: yes
-    command: dpkg-query -W yandex-browser-stable		#запро версии yandex-browser-stable
-    register: my_package_check_deb			#записываем результат в переменную my_package_check_deb
+    #ignore_errors: yes                              #игнор ошибки отсутствия пакета
+    command: dpkg-query -W yandex-browser-stable		#запрос версии yandex-browser-stable
+    register: my_package_check_deb		             	#записываем результат в переменную my_package_check_deb
+    failed_when: "'FAILED' in my_package_check_deb.stderr"  #продолжить, если ошибка, нет пакета
 
   - name: fail if already run on host
     fail: msg="Найден установленный yandex-browser-stable\t22.11.0.2484-1, останов"   #прекратить выполнение плейбука по ошибке (fail) с выводом сообщения
