@@ -7,13 +7,17 @@
     copy:
       src: file/ECP.desktop
       dest: /home/user/Рабочий стол/ECP.desktop
+      owner: user
+      group: users
       mode: 0744
-      #force: yes
+      force: yes
 
   - name: copy file Desktop    
     ignore_errors: yes
     copy:
       src: file/ECP.desktop
       dest: /home/user/Desktop/ECP.desktop
+      owner: user
+      group: users
       mode: 0744
-      #force: yes
+      force: yes
