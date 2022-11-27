@@ -9,8 +9,9 @@
     failed_when: "'FAILED' in my_package_check_deb.stderr"  #продолжить, если ошибка, нет пакета
 
   - name: fail if already run on host
-    fail: msg="Найден установленный yandex-browser-stable\t22.11.0.2484-1, останов"   #прекратить выполнение плейбука по ошибке (fail) с выводом сообщения
-    when: my_package_check_deb.stdout == "yandex-browser-stable\t22.11.0.2484-1" #Если нет yandex-browser-stable\t22.11.0.2484-1, выполнить верхний код 
+    #fail: msg="Найден установленный yandex-browser-stable\t22.11.0.2484-1, останов"   #прекратить выполнение плейбука по ошибке (fail) с выводом сообщения
+    meta: end_host                                                                     #прекратить выполнение плейбука на хосте
+    when: my_package_check_deb.stdout == "yandex-browser-stable\t22.11.0.2484-1" #Если есть yandex-browser-stable\t22.11.0.2484-1, выполнить верхний код 
 
   - name: Install yandex-browser-stable                    #install yandex-browser
     apt: 
