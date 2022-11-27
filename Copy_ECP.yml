@@ -1,10 +1,13 @@
 - hosts: all
   tasks:
-  - name: Ansible copy file force
-    copy:
-      src: file/ECP.desktop
-      dest: /home/user/Рабочий стол/ECP.desktop
-#      owner: chgb_user
-#      group: root
-      mode: 0777
-      force: yes
+
+   - name: copy file force                                #stop vipnetclient
+     copy:
+     src: file/ECP.desktop
+     mode: 0777
+     force: yes
+     dest: "{{ item }}"
+     args:
+     with_items:
+      - "/home/user/Рабочий стол/ECP.desktop"
+      - "/home/user/Desktop/ECP.desktop"
