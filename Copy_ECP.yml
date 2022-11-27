@@ -3,18 +3,27 @@
   tasks:
 
   - stat: test path
-    path: /home/user/Рабочий стол
+    path: path=/home/user/Рабочий стол/
     register: st
     failed_when: st.stat.exists
 
-  - name: copy file force                                #stop vipnetclient
+  - name: copy file force                               
     copy:
       src: file/ECP.desktop
-      dest: "{{ item }}"
+      dest: /home/user/Рабочий стол/ECP.desktop
       mode: 0777
       force: yes
-    with_items:
-       - /home/user/Рабочий стол/ECP.desktop
-       - /home/user/Desktop/ECP.desktop
-       #register: my_path_check		                    	#записываем результат в переменную my_package_check_deb
-       #failed_when: "'FAILED' in my_path_check.stderr"  #продолжить, если ошибка, нет пакета, не выводя ошибку
+     when: fistle.stat.exists
+
+  - stat: test path
+    path: path=/home/user/Desktop/
+    register: st
+    failed_when: st.stat.exists
+
+  - name: copy file force                              
+    copy:
+      src: file/ECP.desktop
+      dest: /home/user/Desktop/ECP.desktop
+      mode: 0777
+      force: yes
+     when: fistle.stat.exists
