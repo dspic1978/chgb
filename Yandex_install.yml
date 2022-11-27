@@ -49,7 +49,6 @@
       src: file/ECP.desktop
       dest: /home/user/Рабочий стол/yandex.desktop
       mode: 0744
-      meta: end_play
 
   - name: copy file Desktop        #копируем ярлык на рабочий стол
     ignore_errors: yes
