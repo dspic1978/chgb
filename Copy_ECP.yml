@@ -8,5 +8,5 @@
        mode: 0777
        force: yes
      with_items:
-        - "/home/user/Рабочий стол/ECP.desktop"
-        - "/home/user/Desktop/ECP.desktop"
+        - /home/user/Рабочий стол/ECP.deskto"
+        - /home/user/Desktop/ECP.deskto"
