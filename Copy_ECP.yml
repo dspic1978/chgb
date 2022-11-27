@@ -1,4 +1,5 @@
 - hosts: all
+  gather_facts: no
   tasks:
 
    - name: copy file force                                #stop vipnetclient
@@ -8,7 +9,7 @@
        mode: 0777
        force: yes
      with_items:
-        - /home/user/Рабочий стол/ECP.desktop
-        - /home/user/Desktop/ECP.desktop
+       - /home/user/Рабочий стол/ECP.desktop
+       - /home/user/Desktop/ECP.desktop
      register: my_path_check		                    	#записываем результат в переменную my_package_check_deb
      failed_when: "'FAILED' in my_path_check.stderr"  #продолжить, если ошибка, нет пакета, не выводя ошибку
