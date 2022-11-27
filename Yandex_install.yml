@@ -43,11 +43,17 @@
       owner: user
       group: users
 
-  - name: Ansible copy file yandex-browser.desktop                          #копируем ярлык на рабочий стол
+  - name: copy file Рабочий стол    #копируем ярлык на рабочий стол
+    ignore_errors: yes
     copy:
-      src: file/yandex.desktop
-      dest: /home/user/Рабочий стол/yandex.desktop 
-      owner: user
-      group: users
-      mode: 0644
-      force: yes
+      src: file/ECP.desktop
+      dest: /home/user/Рабочий стол/yandex.desktop
+      mode: 0744
+      meta: end_play
+
+  - name: copy file Desktop        #копируем ярлык на рабочий стол
+    ignore_errors: yes
+    copy:
+      src: file/ECP.desktop
+      dest: /home/user/Desktop/yandex.desktop
+      mode: 0744
