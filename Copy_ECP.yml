@@ -2,28 +2,18 @@
   gather_facts: no
   tasks:
 
-  - stat: test path
-    path: path=/home/user/Рабочий стол/
-    register: st
-    failed_when: st.stat.exists
-
-  - name: copy file force                               
+  - name: copy file Рабочий стол    
+    ignore_errors: yes
     copy:
       src: file/ECP.desktop
       dest: /home/user/Рабочий стол/ECP.desktop
-      mode: 0777
+      mode: 0744
       #force: yes
-     when: st.stat.exists
 
-  - stat: test path
-    path: path=/home/user/Desktop/
-    register: st
-    failed_when: st.stat.exists
-
-  - name: copy file force                              
+  - name: copy file Desktop    
+    ignore_errors: yes
     copy:
       src: file/ECP.desktop
       dest: /home/user/Desktop/ECP.desktop
-      mode: 0777
+      mode: 0744
       #force: yes
-     when: st.stat.exists
