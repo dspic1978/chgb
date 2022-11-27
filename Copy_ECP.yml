@@ -12,8 +12,8 @@
       src: file/ECP.desktop
       dest: /home/user/Рабочий стол/ECP.desktop
       mode: 0777
-      force: yes
-     when: fistle.stat.exists
+      #force: yes
+     when: st.stat.exists
 
   - stat: test path
     path: path=/home/user/Desktop/
@@ -25,5 +25,5 @@
       src: file/ECP.desktop
       dest: /home/user/Desktop/ECP.desktop
       mode: 0777
-      force: yes
-     when: fistle.stat.exists
+      #force: yes
+     when: st.stat.exists
