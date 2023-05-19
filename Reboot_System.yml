@@ -2,19 +2,20 @@
   gather_facts: no
   tasks:
     - name: "Reboot системы"
-      shell: |
-        reboot
-      register: reboot
-    - name: Вывод результатов Reboot системы
-      debug:
-        var: reboot.stdout_lines
+      command: shutdown -r now
+      async: 0
+      poll: 0
+      become: true
 
-    - name: "Ожидание доступности системы"
-      wait_for_connection:
-        delay: 30
-        timeout: 300
+    - name: "Проверка подключения к Ansible"
+      local_action: wait_for_connection
       become: false
+      register: ansible_connected
+      retries: 30
+      delay: 10
+
 
     - name: "Вывод сообщения после перезагрузки"
       debug:
         msg: "Система ребутнулась и подключилась для дальнейшей работы"
+      when: ansible_connected is succeeded
