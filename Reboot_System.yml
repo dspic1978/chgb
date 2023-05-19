@@ -1,21 +1,12 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - name: "Reboot системы"
-      command: shutdown -r now
-      async: 0
+    - name: Reboot пк
+      shell: sleep 2 && /sbin/shutdown -r now "Ansible system reboot"
+      async: 1
       poll: 0
-      become: true
-
-    - name: "Проверка подключения к Ansible"
-      local_action: wait_for_connection
+      
+    - name: Подождите, пока хост завершит перезагрузку
+      local_action: wait_for host={{ inventory_hostname }} port=22 delay=20 connect_timeout=200
       become: false
-      register: ansible_connected
-      retries: 30
-      delay: 10
-
-
-    - name: "Вывод сообщения после перезагрузки"
-      debug:
-        msg: "Система ребутнулась и подключилась для дальнейшей работы"
-      when: ansible_connected is succeeded
+      delegate_to: localhost
