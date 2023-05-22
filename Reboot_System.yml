@@ -1,7 +1,7 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - name: Открытие ссылки
-      uri:
-        url: "https://abrakadabra.fun/uploads/posts/2021-12/thumbs/1639255727_2-abrakadabra-fun-p-nadpis-sueta-na-chernom-fone-vo-ves-ekran-3.jpg"
-        method: GET
+    - name: Вывод сообщения
+      command: DISPLAY=:0 xmessage -center "Не трогайте ПК"
+      become: true
+      become_user: root
