@@ -1,17 +1,7 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - name: Установка пакета libnotify-bin
-      apt:
-        name: libnotify-bin
-        state: present
-      become: true
-      become_user: root
-
-    - name: Вывод сообщения на экран пользователя
-      command: notify-send "Не трогайте ПК"
-      become: false
-
-    - name: Задержка на 20 секунд
+    - name: Вывод сообщения на экран
       pause:
+        prompt: "Не трогайте ПК. Работа приостановлена."
         seconds: 20
