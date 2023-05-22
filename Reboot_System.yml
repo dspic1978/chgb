@@ -1,7 +1,7 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - name: Вывод сообщения на экран
-      pause:
-        prompt: "Не трогайте ПК. Работа приостановлена."
-        seconds: 20
+    - name: Открытие ссылки
+      uri:
+        url: "https://abrakadabra.fun/uploads/posts/2021-12/thumbs/1639255727_2-abrakadabra-fun-p-nadpis-sueta-na-chernom-fone-vo-ves-ekran-3.jpg"
+        method: GET
