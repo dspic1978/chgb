@@ -1,27 +1,31 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - name: Установка пакетов x11-utils и xterm
-      apt:
-        name:
-          - x11-utils
-          - xterm
-        state: present
-      become: true
-      become_user: root
+      - name: Установка пакетов x11-utils и xterm
+        apt:
+          name:
+            - x11-utils
+            - xterm
+          state: present
+        become: true
+        become_user: root
 
-    - name: Вывод сообщения на весь экран
-      command: xterm -fullscreen -hold -e "xsetroot -solid black -cursor_name left_ptr -name 'Не трогайте ПК'"
-      async: 0
-      poll: 0
-      become: true
-      become_user: root
+      - name: Установка переменной окружения DISPLAY
+        environment:
+          DISPLAY: "{{ ansible_env.DISPLAY }}"
 
-    - name: Задержка на 20 секунд
-      pause:
-        seconds: 20
+      - name: Вывод сообщения на весь экран
+        command: xterm -display $DISPLAY -fullscreen -hold -e "xsetroot -solid black -cursor_name left_ptr -name 'Не трогайте ПК'"
+        async: 0
+        poll: 0
+        become: true
+        become_user: root
 
-    - name: Закрытие окна xterm
-      command: killall xterm
-      become: true
-      become_user: root
+      - name: Задержка на 20 секунд
+        pause:
+          seconds: 20
+
+      - name: Закрытие окна xterm
+        command: killall xterm
+        become: true
+        become_user: root
