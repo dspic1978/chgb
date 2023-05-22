@@ -1,12 +1,27 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - name: Reboot пк
-      shell: sleep 2 && /sbin/shutdown -r now "Ansible system reboot"
-      async: 1
+    - name: Установка пакетов x11-utils и xterm
+      apt:
+        name:
+          - x11-utils
+          - xterm
+        state: present
+      become: true
+      become_user: root
+
+    - name: Вывод сообщения на весь экран
+      command: xterm -fullscreen -hold -e "xsetroot -solid black -cursor_name left_ptr -name 'Не трогайте ПК'"
+      async: 0
       poll: 0
-      
-    - name: Подождите, пока хост завершит перезагрузку
-      local_action: wait_for host={{ inventory_hostname }} port=22 delay=20 connect_timeout=200
-      become: false
-      delegate_to: localhost
+      become: true
+      become_user: root
+
+    - name: Задержка на 20 секунд
+      pause:
+        seconds: 20
+
+    - name: Закрытие окна xterm
+      command: killall xterm
+      become: true
+      become_user: root
