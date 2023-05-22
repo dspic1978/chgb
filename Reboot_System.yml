@@ -1,7 +1,7 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - name: Вывод уведомления
-      command: DISPLAY=:0 notify-send "Не трогайте ПК"
+    - name: Вывод сообщения
+      command: echo "Не трогайте ПК"
       become: true
       become_user: root
