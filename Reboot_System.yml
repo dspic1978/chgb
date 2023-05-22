@@ -1,10 +1,16 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - name: Вывод сообщения на весь экран
-      command: wall "Не трогайте ПК"
+    - name: Установка пакета libnotify-bin
+      apt:
+        name: libnotify-bin
+        state: present
       become: true
       become_user: root
+
+    - name: Вывод сообщения на экран пользователя
+      command: notify-send "Не трогайте ПК"
+      become: false
 
     - name: Задержка на 20 секунд
       pause:
