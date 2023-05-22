@@ -1,7 +1,2 @@
-- hosts: all
-  gather_facts: no
-  tasks:
-    - name: Вывод сообщения
-      command: echo "Не трогайте ПК"
-      become: true
-      become_user: root
+Вывод сообщения "Не трогайте ПК"
+НЕ РАБОТАЕТ!
