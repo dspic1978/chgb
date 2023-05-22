@@ -1,0 +1,8 @@
+- name: Вывод сообщения на весь экран
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Вывод сообщения
+      command: echo "Не трогать компьютер" | cowsay -n
+      become: true
+      become_user: root
