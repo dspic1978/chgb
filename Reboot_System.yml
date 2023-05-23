@@ -16,13 +16,9 @@
         name: zenity
         state: present
 
-    - name: "Вывод смс"
+    - name: "Вывод уведомления"
       shell: |
          export DISPLAY=:0
-         zenity --info --text "НЕ ТРОГАЙТЕ КОМПЬЮТЕР ПОЖАЛУЙСТА, РАБОТАЮТ ПРОГРАММИСТЫ" --height=500 --width=500
+         echo "НЕ ТРОГАЙТЕ КОМПЬЮТЕР ПОЖАЛУЙСТА, РАБОТАЮТ ПРОГРАММИСТЫ" | zenity --notification --listen
       environment:
         DISPLAY: ":0"
-      register: zenity_output
-    - name: Вывод результата
-      debug:
-        var: zenity_output.stdout_lines
