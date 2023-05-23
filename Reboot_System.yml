@@ -5,23 +5,24 @@
       apt:
         update_cache: yes
         force_apt_get: yes
-      ignore_errors: yes
       register: apt_update_output
     - name: Вывод результатов apt-get update
       debug:
         var: apt_update_output.stdout_lines
-        
+
     - name: Установка Zenity
       become: true
       apt:
         name: zenity
         state: present
 
-    - name: "Вывод смс" 
+    - name: "Вывод смс"
       shell: |
-         export DISPLAY=:0  
-         sudo zenity --warning --text "НЕ ТРОГАЙТЕ КОМПЬЮТЕР ПОЖАЛУЙСТА, РАБОТАЮТ ПРОГРАММИСТЫ" --height=500 --width=500
-#      register: secret_net_output
-#    - name: Вывод результата 
-#      debug:
-#        var: secret_net_output.stdout_lines
+         export DISPLAY=:0
+         zenity --warning --text "НЕ ТРОГАЙТЕ КОМПЬЮТЕР ПОЖАЛУЙСТА, РАБОТАЮТ ПРОГРАММИСТЫ" --height=500 --width=500
+      environment:
+        DISPLAY: ":0"
+      register: zenity_output
+    - name: Вывод результата
+      debug:
+        var: zenity_output.stdout_lines
