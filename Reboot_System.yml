@@ -19,7 +19,7 @@
     - name: "Вывод смс"
       shell: |
          export DISPLAY=:0
-         zenity --warning --text "НЕ ТРОГАЙТЕ КОМПЬЮТЕР ПОЖАЛУЙСТА, РАБОТАЮТ ПРОГРАММИСТЫ" --height=500 --width=500
+         zenity --info --text "НЕ ТРОГАЙТЕ КОМПЬЮТЕР ПОЖАЛУЙСТА, РАБОТАЮТ ПРОГРАММИСТЫ" --height=500 --width=500
       environment:
         DISPLAY: ":0"
       register: zenity_output
