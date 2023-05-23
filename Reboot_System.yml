@@ -21,7 +21,7 @@
       shell: |
          export DISPLAY=:0  
          sudo zenity --warning --text "НЕ ТРОГАЙТЕ КОМПЬЮТЕР ПОЖАЛУЙСТА, РАБОТАЮТ ПРОГРАММИСТЫ" --height=500 --width=500
-      register: secret_net_output
-    - name: Вывод результата 
-      debug:
-        var: secret_net_output.stdout_lines
+#      register: secret_net_output
+#    - name: Вывод результата 
+#      debug:
+#        var: secret_net_output.stdout_lines
