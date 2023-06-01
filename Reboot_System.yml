@@ -9,6 +9,7 @@
          
     - name: Разархивация SN_LSP.tar
       unarchive:
+         remote_src: true  # Искать файл на удаленном узле
          src: /opt/SN_LSP.tar  # Путь к файлу архива
          dest: /opt/  # Путь к каталогу, куда нужно разархивировать  
          
