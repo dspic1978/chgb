@@ -1,4 +1,6 @@
-
+- hosts: all
+  gather_facts: no
+  tasks:
 # НЕОБХОДИМО ПОСТАВИТЬ НУЖНУЮ ВЕРСИЮ SECRET NET
     - name: "Команды для терминала для установки SecretNet"
       shell: |
