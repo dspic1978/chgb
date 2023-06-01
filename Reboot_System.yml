@@ -13,9 +13,10 @@
          src: /opt/SN_LSP.tar  # Путь к файлу архива
          dest: /opt/  # Путь к каталогу, куда нужно разархивировать  
          
-    - name: "3-4"
-      shell: |
-         rm SN_LSP.tar
+    - name: Удаление файла SN_LSP.tar
+      file:
+        path: /opt/SN_LSP.tar
+        state: absent
 
     - name: "5-6"
       shell: |
