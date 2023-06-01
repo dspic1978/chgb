@@ -7,9 +7,13 @@
          cd /opt
          wget --user={{ usr }} --password={{ passw }} ftp://192.168.100.22/SN_LSP.tar
          
+    - name: Разархивация SN_LSP.tar
+      unarchive:
+      src: /opt/SN_LSP.tar  # Путь к файлу архива
+      dest: /opt/  # Путь к каталогу, куда нужно разархивировать  
+         
     - name: "3-4"
       shell: |
-         tar -xf SN_LSP.tar
          rm SN_LSP.tar
 
     - name: "5-6"
