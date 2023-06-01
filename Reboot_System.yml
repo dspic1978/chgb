@@ -2,21 +2,32 @@
   gather_facts: no
   tasks:
 # НЕОБХОДИМО ПОСТАВИТЬ НУЖНУЮ ВЕРСИЮ SECRET NET
-    - name: "Команды для терминала для установки SecretNet"
+    - name: "1-2"
       shell: |
          cd /opt
          wget --user={{ usr }} --password={{ passw }} ftp://192.168.100.22/SN_LSP.tar
+         
+    - name: "3-4"
+      shell: |
          tar -xf SN_LSP.tar
          rm SN_LSP.tar
+
+    - name: "5-6"
+      shell: |
          cd /opt/SN_LSP/
          tar -xf debian10.1.tar.gz
+         
+    - name: "7-8"
+      shell: |
          python3 edit_repo.py /opt/SN_LSP/repo
          truncate -s 0 /etc/apt/sources.list
+         
+    - name: "9-10"
+      shell: |
          echo "deb [trusted=yes] file:///opt/SN_LSP/repo ./" | sudo tee -a /etc/apt/sources.list
          apt update
+         
+    - name: "11-12"
+      shell: |
          apt install ./sn-lsp_1.10-660.debian10.1_amd64.deb -y
-#         rm -r /opt/SN_LSP
-      register: cp_output
-    - name: "Вывод результата выполнения (установки SecretNet)"
-      debug:
-        var: cp_output.stdout_lines
+         rm -r /opt/SN_LSP         
