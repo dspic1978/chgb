@@ -32,7 +32,7 @@
     - name: "Установка SecretNeta"
       shell: |
          dpkg --configure -a
-         apt install -y /opt/SN_LSP/sn-lsp_1.10-660.debian10.1_amd64.deb
+#         apt install -y /opt/SN_LSP/sn-lsp_1.10-660.debian10.1_amd64.deb
 
 
       
