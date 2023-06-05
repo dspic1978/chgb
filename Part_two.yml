@@ -31,7 +31,7 @@
     
     - name: "Установка SecretNeta"
       shell: |
-         DEBIAN_FRONTEND=noninteractive DEBIAN_PRIORITY=critical apt install -y ./sn-lsp_1.10-660.debian10.1_amd64.deb
+         env DEBIAN_FRONTEND=noninteractive DEBIAN_PRIORITY=critical apt install -y ./sn-lsp_1.10-660.debian10.1_amd64.deb
 
 
       
