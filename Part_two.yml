@@ -29,12 +29,9 @@
          echo "deb [trusted=yes] file:///opt/SN_LSP/repo ./" | sudo tee -a /etc/apt/sources.list
          apt update  
     
-    - name: "Установка SecretNeta"
-      become: true
-      tasks:
-        - name: "Установка deb-пакета"
-          dpkg:
-            deb: "/opt/SN_LSP/sn-lsp_1.10-660.debian10.1_amd64.deb"
+    - name: "Установка deb-пакета"
+      dpkg:
+         deb: "/opt/SN_LSP/sn-lsp_1.10-660.debian10.1_amd64.deb"
 
 
       
