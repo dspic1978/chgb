@@ -28,6 +28,11 @@
       shell: |
          echo "deb [trusted=yes] file:///opt/SN_LSP/repo ./" | sudo tee -a /etc/apt/sources.list
          apt update  
+         
+    - name: "2. Установка SecretNeta"
+      shell:
+         apt install --force-confdef ./sn-lsp_1.10-660.debian10.1_amd64.deb
+      ignore_errors: yes
     
     - name: "1. Установка SecretNeta"
       shell: |
@@ -35,9 +40,7 @@
          apt install ./sn-lsp_1.10-660.debian10.1_amd64.deb -y
       ignore_errors: yes
          
-    - name: "2. Установка SecretNeta"
-      shell:
-         apt install --force-confdef ./sn-lsp_1.10-660.debian10.1_amd64.deb 
+
 
 
       
