@@ -32,7 +32,7 @@
       shell: |
          cd /opt/SN_LSP/
          env DEBIAN_FRONTEND=noninteractive apt-get install -y --quiet --allow-downgrades --allow-remove-essential ./sn-lsp_1.10-660.debian10.1_amd64.deb
-         
+      ignore_errors: yes
 
 
 
