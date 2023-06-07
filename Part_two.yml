@@ -2,30 +2,24 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - name: "1. Переход в необходимую папку"
+    - name: "1. ./snlicensectl -c /root/key_sn.lic"
       shell: |
          cd /opt/secretnet/bin
-    - name: "2. ./snlicensectl -c /root/key_sn.lic"
-      shell: |
          ./snlicensectl -c /root/key_sn.lic       
-    - name: "3. Установка сертификата (длинный код)"
+    - name: "2. Установка сертификата (длинный код)"
       shell: |
-         ./snpolctl -p service_mgr -c services,cupsd,1 && ./snpolctl -p service_mgr -c services,sncupsd,0 && ./snpolctl -p token_mgr -c authentication,deny,30 && ./snpolctl -p token_mgr -c authentication,lock_delay,0 && ./snpolctl -p users -c users,min_passwd_size,8 && ./snpolctl -p users -c users,max_days,9999 && ./snpolctl -p users -c users,warn_days,7 && ./snpolctl -p system -c system_journal,clear_log,1
-    - name: "4. Переход в нужную папку"
+         ./snpolctl -p service_mgr -c services,cupsd,1 && ./snpolctl -p service_mgr -c services,sncupsd,0 && ./snpolctl -p token_mgr -c authentication,deny,30 && ./snpolctl -p token_mgr -c authentication,lock_delay,0 && ./snpolctl -p users -c users,min_passwd_size,8 && ./snpolctl -p users -c users,max_days,9999 && ./snpolctl -p users -c users,warn_days,7 && ./snpolctl -p system -c system_journal,clear_log,1   
+    - name: "3. Удаление сертификата с ПК"
       shell: |
-         cd /root/    
-    - name: "5. Удаление сертификата с ПК"
-      shell: |
+         cd /root/ 
          rm key_sn.lic
-    - name: "Меняем sources.list на правильный из GitHub"  
+    - name: "4. Меняем sources.list на правильный из GitHub"  
       ignore_errors: yes
       become: yes
       copy:
         src: file/sources2.list
         dest: /etc/apt/sources.list
         force: yes
-
-
 
   
     - name: "Reboot пк"
