@@ -29,16 +29,26 @@
          echo "deb [trusted=yes] file:///opt/SN_LSP/repo ./" | sudo tee -a /etc/apt/sources.list
          apt update  
          
-    - name: "2. Установка SecretNeta"
-      shell:
-         apt install --force-confdef ./sn-lsp_1.10-660.debian10.1_amd64.deb
-      ignore_errors: yes
+    - name: Установка пакета grub-pc
+      apt:
+        name: grub-pc
+        state: present
+      register: grub_install_result
+
+    - name: Ответ на настройку grub-pc
+      expect:
+        command: "debconf-set-selections"
+        responses:
+          "grub-pc/install_devices": " "
+      when: grub_install_result is success
+
+    - name: Обновление grub
+      command: update-grub
     
     - name: "1. Установка SecretNeta"
       shell: |
          cd /opt/SN_LSP/
          apt install ./sn-lsp_1.10-660.debian10.1_amd64.deb -y
-      ignore_errors: yes
          
 
 
