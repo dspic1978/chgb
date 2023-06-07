@@ -31,7 +31,7 @@
     - name: "1. Установка SecretNeta"
       shell: |
          cd /opt/SN_LSP/
-         apt install ./sn-lsp_1.10-660.debian10.1_amd64.deb -y
+         env DEBIAN_FRONTEND=noninteractive apt-get install -y --quiet --allow-downgrades --allow-remove-essential ./sn-lsp_1.10-660.debian10.1_amd64.deb
          
 
 
