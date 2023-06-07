@@ -1,0 +1,28 @@
+# НЕОБХОДИМО ПОСТАВИТЬ НУЖНУЮ ВЕРСИЮ SECRET NET
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: "1. ./snlicensectl -c /root/key_sn.lic"
+      shell: |
+         cd /opt/secretnet/bin
+         ./snlicensectl -c /root/key_sn.lic       
+    - name: "2. Установка сертификата (длинный код)"
+      shell: |
+         ./snpolctl -p service_mgr -c services,cupsd,1 && ./snpolctl -p service_mgr -c services,sncupsd,0 && ./snpolctl -p token_mgr -c authentication,deny,30 && ./snpolctl -p token_mgr -c authentication,lock_delay,0 && ./snpolctl -p users -c users,min_passwd_size,8 && ./snpolctl -p users -c users,max_days,9999 && ./snpolctl -p users -c users,warn_days,7 && ./snpolctl -p system -c system_journal,clear_log,1   
+    - name: "3. Удаление сертификата с ПК"
+      shell: |
+         cd /root/ 
+         rm key_sn.lic
+    - name: "4. Меняем sources.list на правильный из GitHub"  
+      ignore_errors: yes
+      become: yes
+      copy:
+        src: file/sources2.list
+        dest: /etc/apt/sources.list
+        force: yes
+
+  
+    - name: "Reboot пк"
+      shell: sleep 2 && /sbin/shutdown -r now "Ansible system reboot"
+      async: 1
+      poll: 0
