@@ -1,12 +1,6 @@
 # НЕОБХОДИМО ПОСТАВИТЬ НУЖНУЮ ВЕРСИЮ SECRET NET
 - hosts: all
   gather_facts: no
-  
-  vars:
-    grub_selections: |
-      grub-pc grub-pc/install_devices select
-      grub-pc grub-pc/install_devices_multiselect select
-  
   tasks:
     - name: "Скачивание архива с удаленного доступа"
       shell: |
@@ -29,29 +23,11 @@
       shell: |
          python3 edit_repo.py /opt/SN_LSP/repo
          truncate -s 0 /etc/apt/sources.list
-    
     - name: "Меняем значение sources.list"
       shell: |
          echo "deb [trusted=yes] file:///opt/SN_LSP/repo ./" | sudo tee -a /etc/apt/sources.list
          apt update  
          
-    - name: Установка пакета grub-pc
-      apt:
-        name: grub-pc
-        state: present
-      register: grub_install_result
-
-    - name: Ответ на настройку grub-pc
-      debconf:
-        name: "{{ item.split()[0] }}"
-        question: "{{ item.split()[1] }}"
-        value: "{{ item.split()[2] }}"
-      with_items: "{{ grub_selections.split('\n') }}"
-      when: grub_install_result is success
-
-    - name: Обновление grub
-      command: update-grub
-    
     - name: "1. Установка SecretNeta"
       shell: |
          cd /opt/SN_LSP/
