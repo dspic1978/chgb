@@ -2,32 +2,24 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - name: "1. ./snlicensectl -c /root/key_sn.lic"
+    - name: "Установка SecretNeta"
       shell: |
-         cd /opt/secretnet/bin
-         ./snlicensectl -c /root/key_sn.lic       
-    - name: "2. Установка сертификата (длинный код)"
-      shell: |
-         ./snpolctl -p service_mgr -c services,cupsd,1 && ./snpolctl -p service_mgr -c services,sncupsd,0 && ./snpolctl -p token_mgr -c authentication,deny,30 && ./snpolctl -p token_mgr -c authentication,lock_delay,0 && ./snpolctl -p users -c users,min_passwd_size,8 && ./snpolctl -p users -c users,max_days,9999 && ./snpolctl -p users -c users,warn_days,7 && ./snpolctl -p system -c system_journal,clear_log,1   
-    - name: "3. Удаление сертификата с ПК"
-      shell: |
-         cd /root/ 
-         rm key_sn.lic
-    - name: "4. Меняем sources.list на правильный из GitHub"  
+         apt update 
+         cd /opt/SN_LSP/
+         env DEBIAN_FRONTEND=noninteractive apt-get install -y --quiet --allow-downgrades --allow-remove-essential ./sn-lsp_1.10-660.debian10.1_amd64.deb
       ignore_errors: yes
-      become: yes
-      copy:
-        src: file/sources2.list
-        dest: /etc/apt/sources.list
-        force: yes
 
-  
+    - name: "Удаляем архив SN_LSP"
+      file:
+         path: /opt/SN_LSP
+         state: absent
+         
+    - name: "Скачивание лицензии для SecretNeta с удаленного доступа"
+      shell: |
+         cd
+         wget --user={{ usr }} --password={{ passw }} ftp://192.168.100.22/key_sn.lic
+         
     - name: "Reboot пк"
       shell: sleep 2 && /sbin/shutdown -r now "Ansible system reboot"
       async: 1
       poll: 0
-      
-#    - name: "Происходит перезапуск системы, осталось немного"
-#      local_action: wait_for host={{ inventory_hostname }} port=22 delay=20 connect_timeout=200
-#      become: false
-#      delegate_to: localhost
