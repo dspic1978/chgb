@@ -8,6 +8,7 @@
          ./snlicensectl -c /root/key_sn.lic       
     - name: "2. Установка сертификата (длинный код)"
       shell: |
+         cd /opt/secretnet/bin
          ./snpolctl -p service_mgr -c services,cupsd,1 && ./snpolctl -p service_mgr -c services,sncupsd,0 && ./snpolctl -p token_mgr -c authentication,deny,30 && ./snpolctl -p token_mgr -c authentication,lock_delay,0 && ./snpolctl -p users -c users,min_passwd_size,8 && ./snpolctl -p users -c users,max_days,9999 && ./snpolctl -p users -c users,warn_days,7 && ./snpolctl -p system -c system_journal,clear_log,1   
     - name: "3. Удаление сертификата с ПК"
       shell: |
