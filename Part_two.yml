@@ -35,12 +35,13 @@
       ignore_errors: yes
 
     - name: "Удаляем архив SN_LSP"
-      shell: |
-         rm -r /opt/SN_LSP
-         cd
+      file:
+         path: /opt/SN_LSP
+         state: absent
          
     - name: "Скачивание лицензии для SecretNeta с удаленного доступа"
       shell: |
+         cd
          wget --user={{ usr }} --password={{ passw }} ftp://192.168.100.22/key_sn.lic
 
       
