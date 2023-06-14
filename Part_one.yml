@@ -30,6 +30,14 @@
         src: file/sources2.list
         dest: /etc/apt/sources.list
         force: yes
+        
+    - name: "Меняем fstab на правильный из GitHub"  
+      ignore_errors: yes
+      become: yes
+      copy:
+        src: file/fstab.list
+        dest: /etc/fstab
+        force: yes
   
     - name: "Копия fstab" 
       shell: |
