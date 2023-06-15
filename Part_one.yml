@@ -50,12 +50,11 @@
       shell: |
          wget https://repo.yandex.ru/yandex-browser/YANDEX-BROWSER-KEY.GPG -O- | sudo apt-key add -
   
-    - name: "Установка apt-transport-https"
+    - name: "Установка пакета apt-transport-https"
+      become: yes
       apt:
-        name: apt-transport-https
-        state: present
-      become: true
-      become_user: root
+         name: apt-transport-https
+         state: present
       ignore_errors: yes
         
     - name: "Установка python-apt"
