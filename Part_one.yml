@@ -46,6 +46,11 @@
       shell: |
          cp /etc/fstab /etc/fstab.backup 
 
+    - name: "Выполнение команды 1. <apt update>"
+      apt:
+        update_cache: yes
+        force_apt_get: yes
+
     - name: "Репы для Yandex" 
       shell: |
          wget https://repo.yandex.ru/yandex-browser/YANDEX-BROWSER-KEY.GPG -O- | sudo apt-key add -
