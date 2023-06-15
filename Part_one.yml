@@ -33,10 +33,6 @@
       become: true
       become_user: root
       ignore_errors: yes
-
-    - name: "Репы для Yandex" 
-      shell: |
-         wget https://repo.yandex.ru/yandex-browser/YANDEX-BROWSER-KEY.GPG -O- | sudo apt-key add -
       
     - name: "Меняем sources.list на правильный из GitHub"  
       ignore_errors: yes
@@ -57,6 +53,10 @@
     - name: "Копия fstab" 
       shell: |
          cp /etc/fstab /etc/fstab.backup 
+
+    - name: "Репы для Yandex" 
+      shell: |
+         wget https://repo.yandex.ru/yandex-browser/YANDEX-BROWSER-KEY.GPG -O- | sudo apt-key add -
         
     - name: "Установка python-apt"
       apt:
