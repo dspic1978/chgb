@@ -26,18 +26,6 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - name: "Репы для Yandex" 
-      shell: |
-         wget https://repo.yandex.ru/yandex-browser/YANDEX-BROWSER-KEY.GPG -O- | sudo apt-key add -
-  
-    - name: "Установка apt-transport-https"
-      apt:
-        name: apt-transport-https
-        state: present
-      become: true
-      become_user: root
-      ignore_errors: yes
-      
     - name: "Меняем sources.list на правильный из GitHub"  
       ignore_errors: yes
       become: yes
@@ -57,6 +45,18 @@
     - name: "Копия fstab" 
       shell: |
          cp /etc/fstab /etc/fstab.backup 
+
+    - name: "Репы для Yandex" 
+      shell: |
+         wget https://repo.yandex.ru/yandex-browser/YANDEX-BROWSER-KEY.GPG -O- | sudo apt-key add -
+  
+    - name: "Установка apt-transport-https"
+      apt:
+        name: apt-transport-https
+        state: present
+      become: true
+      become_user: root
+      ignore_errors: yes
         
     - name: "Установка python-apt"
       apt:
