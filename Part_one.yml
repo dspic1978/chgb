@@ -20,9 +20,24 @@
 # apt-get update
 # apt-get install linux-image-4.19.0-6-amd64 -y (ЕСЛИ СТАВИТЬ НЕСКАЧАННОЕ ЯДРО, СЛЕТАЕТ SSHD_CONFIG -> СЛЕТАЕТ ПАРОЛЬ)
 ########################################
+# apt install apt-transport-https (скачиваем apt-transport-https (СДЕЛАТЬ ЧЕРЕЗ APT))
+# wget https://repo.yandex.ru/yandex-browser/YANDEX-BROWSER-KEY.GPG -O- | sudo apt-key add -
+########################################
 - hosts: all
   gather_facts: no
   tasks:
+    - name: "Установка apt-transport-https"
+      apt:
+        name: apt-transport-https
+        state: present
+      become: true
+      become_user: root
+      ignore_errors: yes
+
+    - name: "Репы для Yandex" 
+      shell: |
+         wget https://repo.yandex.ru/yandex-browser/YANDEX-BROWSER-KEY.GPG -O- | sudo apt-key add -
+      
     - name: "Меняем sources.list на правильный из GitHub"  
       ignore_errors: yes
       become: yes
