@@ -32,15 +32,7 @@
       copy:
         src: file/sources2.list
         dest: /etc/apt/sources.list
-        force: yes
-        
-    - name: "Меняем fstab на правильный из GitHub"  
-      ignore_errors: yes
-      become: yes
-      copy:
-        src: file/fstab.list
-        dest: /etc/fstab
-        force: yes
+        force: yes        
   
     - name: "Копия fstab" 
       shell: |
@@ -50,13 +42,6 @@
       shell: |
          wget https://repo.yandex.ru/yandex-browser/YANDEX-BROWSER-KEY.GPG -O- | sudo apt-key add -
          apt install apt-transport-https -y
-  
-#    - name: "Установка пакета apt-transport-https"
-#      become: yes
-#      apt:
-#         name: apt-transport-https
-#         state: present
-#      ignore_errors: yes
 
     - name: "Выполнение команды 1. <apt update>"
       apt:
