@@ -99,6 +99,21 @@
       become: true
       become_user: root
 
+    - name: "Меняем GRUB на правильный из GitHub"  
+      become: yes
+      copy:
+        src: file/grub.list
+        dest: /etc/default/grub
+        force: yes
+
+    - name: "Update-grub"
+      shell: |
+         update-grub
+
+    - name: "Заморозка ядра"
+      shell: |
+         apt-mark hold linux-image-4.19.0-6-amd64
+
 # Вторая часть называется Part_two.yml
 # Установка ПК
     - name: "Скачивание архива с удаленного доступа"
