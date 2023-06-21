@@ -22,6 +22,11 @@
         dest: /etc/apt/sources.list
         force: yes
 
+    - name: "4. full-upgrade"
+      ignore_errors: yes
+      shell: |
+         apt-get -yqq full-upgrade 
+
     - name: "5. Разблокировка станции"  
       shell: |
          /opt/secretnet/bin/snaidectl -i 
