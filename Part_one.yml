@@ -27,7 +27,6 @@
   gather_facts: no
   tasks:
     - name: "Меняем sources.list на правильный из GitHub"  
-      ignore_errors: yes
       become: yes
       copy:
         src: file/sources2.list
@@ -39,6 +38,7 @@
          cp /etc/fstab /etc/fstab.backup 
 
     - name: "<apt update>"
+      ignore_errors: yes
       apt:
         update_cache: yes
         force_apt_get: yes
