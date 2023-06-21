@@ -71,6 +71,12 @@
         update_cache: yes
         force_apt_get: yes
 
+    - name: "Установка пакетов для следующих команд"
+      ignore_errors: yes
+      shell: |
+         apt-get install gnustep-base-runtime libgnustep-base1.26 -y
+        
+
     - name: "Выполнение команды 2. <apt upgrade>"
       apt:
         upgrade: yes
