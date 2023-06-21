@@ -87,7 +87,6 @@
       apt:
         upgrade: dist
         force_apt_get: yes
-        install_options: "--fix-missing"   #Исправляет проблемы с пропущенными пакетами
       ignore_errors: yes
         
 # ОБНОВЛЕНИЕ ЯДРА!
