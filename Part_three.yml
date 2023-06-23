@@ -22,12 +22,17 @@
         dest: /etc/apt/sources.list
         force: yes
 
-    - name: "5. full-upgrade"
+    - name: "5. Обновление всех пакетов"
       ignore_errors: yes
       shell: |
          env DEBIAN_FRONTEND=noninteractive apt-get -yqq full-upgrade
 
-    - name: "6. Разблокировка станции"  
+    - name: "6. Удаление ненужных пакетов"
+      ignore_errors: yes
+      shell: |
+         apt autoremove -y
+
+    - name: "7. Разблокировка станции"  
       shell: |
          /opt/secretnet/bin/snaidectl -i 
          /opt/secretnet/sbin/snunblock
