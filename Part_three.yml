@@ -30,7 +30,7 @@
     - name: "6. Удаление ненужных пакетов"
       ignore_errors: yes
       shell: |
-         apt autoremove -y
+         env DEBIAN_FRONTEND=noninteractive apt autoremove -y
 
     - name: "7. Разблокировка станции"  
       shell: |
