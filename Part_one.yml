@@ -110,12 +110,10 @@
       become: true
       become_user: root
 
-    - name: "Меняем GRUB на правильный из GitHub"  
-      become: yes
-      copy:
-        src: file/grub.list
-        dest: /etc/default/grub
-        force: yes
+    - name: "Меняем GRUB на правильный"
+      shell: |
+         sed -i '/^GRUB_DEFAULT=/d' /etc/default/grub
+         sed -i '1s/.*/GRUB_DEFAULT="Debian GNU\/Linux, with Linux 4.19.0-6-amd64"/' /etc/default/grub
 
     - name: "Update-grub"
       shell: |
