@@ -1,4 +1,3 @@
-# НЕОБХОДИМО ПОСТАВИТЬ НУЖНУЮ ВЕРСИЮ SECRET NET
 - hosts: all
   gather_facts: no
   tasks:
