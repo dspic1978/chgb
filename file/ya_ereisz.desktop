@@ -1,0 +1,19 @@
+[Desktop Entry]
+Name=Firefox
+Name[ru]=Firefox
+Comment=Browse the World Wide Web
+Comment[ru]=Обозреватель Всемирной Паутины
+GenericName=Web Browser
+GenericName[ru]=Интернет-браузер
+X-GNOME-FullName=Firefox Web Browser
+X-GNOME-FullName[ru]=Интернет-браузер Firefox
+Exec=/usr/bin/yandex-browser %u https://ereisz.permkrai.ru/
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=yandex-browser
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler
+StartupWMClass=Firefox
+StartupNotify=true
+Name[ru_RU]=Промед
