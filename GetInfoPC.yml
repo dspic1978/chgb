@@ -1,7 +1,8 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - shell: hostname; vipnetclient info|grep "Host name"; drweb-ctl license; cat /proc/cpuinfo|grep "model name"
+    - shell: hostname; vipnetclient info|grep "Host name"; drweb-ctl license
+    # - shell: hostname; vipnetclient info|grep "Host name"; drweb-ctl license; cat /proc/cpuinfo|grep "model name"
       register: hostname
 
     # Print the shell task's stdout.
