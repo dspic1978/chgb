@@ -1,0 +1,26 @@
+- hosts: all
+  gather_facts: no
+  tasks:
+  - name: Copy sert
+    copy:
+      src: file/Минцифра_2026.cer
+      dest: /home/user/Минцифра_2026.cer
+      owner: user
+      group: users
+      mode: 0644
+      force: yes
+      
+- hosts: all
+  gather_facts: no      
+  tasks:
+    - shell: chown -R user:user /var/opt/cprocsp && su user && /opt/cprocsp/bin/amd64/certmgr -inst -store root -file /home/user/Минцифра_2026.cer
+      args:
+        executable: /bin/bash
+      
+- hosts: all
+  gather_facts: no      
+  tasks:
+  - name: Del sert
+    file:
+        path: "/home/user/Минцифра_2026.cer"
+        state: absent
